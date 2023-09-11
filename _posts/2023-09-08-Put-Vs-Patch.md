@@ -100,3 +100,6 @@ exports const updateUserNickname = async (req, res) => {
 		
 ### 결론
 `PUT과 PATCH를 잘 구별하자 PUT을 사용할 때는 더욱 조심하자!`
+
+#### 참조 
+- [자원을 수정하는 HTTP 메서드 - PUT vs PATCH](https://tecoble.techcourse.co.kr/post/2020-08-17-put-vs-patch/)
