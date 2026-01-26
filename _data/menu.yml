@@ -8,7 +8,6 @@ entries:
         url: mabr2845@gmail.com
   - title: For Study
     post_list:
-      limit: 5
       show_more: true
       show_more_text: More Posts
       show_more_url: archive.html
