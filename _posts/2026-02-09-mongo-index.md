@@ -1,5 +1,6 @@
 ---
 title: MongoDB 인덱스 정리하다가 알게 된 복합 인덱스와 prefix rule
+layout: post
 ---
 
 최근에 MongoDB 인덱스 리뷰를 받다가 아래와 같은 코멘트를 받았다.
