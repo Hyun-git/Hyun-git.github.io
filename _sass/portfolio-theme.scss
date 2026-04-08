@@ -1,0 +1,167 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --link-color: #0066cc;
+  --meta-color: #666666;
+  --border-color: #eeeeee;
+  --accent-color: #f8f9fa;
+  --code-bg: #f4f4f4;
+  --code-text: #e83e8c;
+}
+
+[a="dark"], 
+@media (prefers-color-scheme: dark) {
+  body[a="auto"], body[a="dark"] {
+    --bg-color: #0d1117;
+    --text-color: #c9d1d9;
+    --link-color: #58a6ff;
+    --meta-color: #8b949e;
+    --border-color: #30363d;
+    --accent-color: #161b22;
+    --code-bg: #161b22;
+    --code-text: #ff7b72;
+  }
+}
+
+html, body { background: var(--bg-color); }
+html { height: 100%; }
+
+body {
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100%;
+  overflow-wrap: break-word;
+}
+
+.w {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.hero {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--meta-color);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  &:hover { text-decoration: underline; }
+}
+
+.post-meta { 
+  color: var(--meta-color);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+h2, h3, h4, h5, h6 { 
+  margin-top: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+hr {
+  margin: 3rem 0;
+  border: 0;
+  border-top: 1px solid var(--border-color);
+}
+
+// Skill Badges
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.skill-badge {
+  background: var(--accent-color);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table, th, td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+}
+
+code {
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 85%;
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+div.highlighter-rouge code {
+  display: block;
+  overflow-x: auto;
+  white-space: pre;
+  padding: 1.2rem;
+  color: var(--text-color);
+}
+
+blockquote {
+  border-left: 4px solid var(--link-color);
+  background: var(--accent-color);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  p { margin: 0; }
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 2rem auto;
+}
+
+ul.posts {
+  list-style: none;
+  padding: 0;
+}
+
+ul.posts li {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+ul.posts li span {
+  font-size: 0.85rem;
+  color: var(--meta-color);
+}
+
+ul.posts li a {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
