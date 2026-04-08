@@ -21,6 +21,8 @@ theme_config:
 
 sass:
   style: :compressed
+  load_paths:
+    - _sass
 
 plugins:
   - jekyll-feed
