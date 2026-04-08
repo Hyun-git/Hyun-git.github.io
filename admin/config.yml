@@ -2,7 +2,7 @@ backend:
   name: github
   repo: Hyun-git/Hyun-git.github.io
   branch: main
-  base_url: https://github-cms-auth.vercel.app/ # Free public OAuth proxy for GitHub backend
+  base_url: https://decap-cms-oauth.vercel.app/
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
