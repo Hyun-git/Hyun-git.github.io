@@ -9,9 +9,19 @@
   --code-text: #e83e8c;
 }
 
-[a="dark"], 
+body[a="dark"] {
+  --bg-color: #0d1117;
+  --text-color: #c9d1d9;
+  --link-color: #58a6ff;
+  --meta-color: #8b949e;
+  --border-color: #30363d;
+  --accent-color: #161b22;
+  --code-bg: #161b22;
+  --code-text: #ff7b72;
+}
+
 @media (prefers-color-scheme: dark) {
-  body[a="auto"], body[a="dark"] {
+  body[a="auto"] {
     --bg-color: #0d1117;
     --text-color: #c9d1d9;
     --link-color: #58a6ff;

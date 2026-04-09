@@ -9,9 +9,19 @@
   --code-text: #e83e8c !important;
 }
 
-[a="dark"], 
+body[a="dark"] {
+  --bg-color: #0d1117 !important;
+  --text-color: #c9d1d9 !important;
+  --link-color: #58a6ff !important;
+  --meta-color: #8b949e !important;
+  --border-color: #30363d !important;
+  --accent-color: #161b22 !important;
+  --code-bg: #161b22 !important;
+  --code-text: #ff7b72 !important;
+}
+
 @media (prefers-color-scheme: dark) {
-  body[a="auto"], body[a="dark"] {
+  body[a="auto"] {
     --bg-color: #0d1117 !important;
     --text-color: #c9d1d9 !important;
     --link-color: #58a6ff !important;
@@ -31,7 +41,6 @@ html, body {
 body {
   color: var(--text-color) !important;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji" !important;
-}
   font-size: 16px;
   line-height: 1.6;
   margin: 0;
