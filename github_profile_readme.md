@@ -29,9 +29,9 @@
 
 ### 🌟 Featured Projects
 
-| <img src="https://github.com/Hyun-git/Hyun-git.github.io/raw/main/assets/images/farmeme.png" width="300px" alt="Farmeme"> | **Farmeme (Mash-Up 14기)** <br> 추천 밈 탐색 및 클립보드 저장 서비스 <br> • 아이폰 대용량 이미지 업로드 지연 문제 해결 <br> • 다수의 API 개발 및 백오피스 구축 <br> [GitHub](https://github.com/mash-up-kr/ppac-server) |
-| :--- | :--- |
-| <img src="https://github.com/Hyun-git/Hyun-git.github.io/raw/main/assets/images/twotoo.png" width="300px" alt="Twotoo"> | **Twotoo (Mash-Up 13기)** <br> 연인과 함께하는 22일 습관 형성 챌린지 <br> • NestJS → Express 마이그레이션으로 유지보수 효율 향상 <br> • MongoDB Atlas Chart 기반 데이터 대시보드 구축 <br> [GitHub](https://github.com/team-twotoo) |
+| <img src="https://github.com/Hyun-git/Hyun-git.github.io/raw/main/assets/images/farmeme.png" width="300px" alt="Farmeme"> | **Farmeme (Mash-Up 14기)** <br> 추천 밈 탐색 및 클립보드 저장 서비스 <br> • 아이폰 대용량 이미지 업로드 지연 문제 해결 <br> • 다수의 API 개발 및 백오피스 구축 <br> [GitHub](https://github.com/mash-up-kr/ppac-server)             |
+| :------------------------------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/Hyun-git/Hyun-git.github.io/raw/main/assets/images/twotoo.png" width="300px" alt="Twotoo">   | **Twotoo (Mash-Up 13기)** <br> 연인과 함께하는 22일 습관 형성 챌린지 <br> • NestJS → Express 마이그레이션으로 유지보수 효율 향상 <br> • MongoDB Atlas Chart 기반 데이터 대시보드 구축 <br> [GitHub](https://github.com/team-twotoo) |
 
 ---
 
@@ -47,8 +47,8 @@
 ### 📊 GitHub Stats
 
 <p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=Hyun-git&show_icons=true&theme=transparent&hide_border=true&title_color=0052cc&icon_color=0052cc&text_color=6b7280" alt="Hyun-git's GitHub Stats" height="150">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hyun-git&layout=compact&theme=transparent&hide_border=true&title_color=0052cc&text_color=6b7280" alt="Top Langs" height="150">
+  <img src="https://github-readme-stats.vercel.app/api?username=Hyun-git&show_icons=true&theme=default&title_color=0052cc&icon_color=0052cc&text_color=6b7280&bg_color=ffffff&hide_border=true" alt="Hyun-git's GitHub Stats" height="150">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hyun-git&layout=compact&theme=default&title_color=0052cc&text_color=6b7280&bg_color=ffffff&hide_border=true" alt="Top Langs" height="150">
 </p>
 
 ---
