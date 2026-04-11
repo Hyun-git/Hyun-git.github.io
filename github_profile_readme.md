@@ -44,11 +44,16 @@
 
 ---
 
-### 📊 GitHub Stats
+### 📊 GitHub Activity
 
 <p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=Hyun-git&show_icons=true&theme=default&title_color=0052cc&icon_color=0052cc&text_color=6b7280&bg_color=ffffff&hide_border=true" alt="Hyun-git's GitHub Stats" height="150">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hyun-git&layout=compact&theme=default&title_color=0052cc&text_color=6b7280&bg_color=ffffff&hide_border=true" alt="Top Langs" height="150">
+  <!-- 스트릭 스탯: 본인의 꾸준함을 강조 -->
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Hyun-git&theme=soft-primary&hide_border=true&stroke=0052cc&ring=0052cc&fire=0052cc&currStreakLabel=0052cc" alt="Hyun-git's Streak Stats" height="160">
+</p>
+
+<p align="left">
+  <!-- 활동 그래프: 최근 일주일간의 활동량 시각화 -->
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Hyun-git&theme=react&bg_color=ffffff&hide_border=true&color=0052cc&point=6b7280" alt="Hyun-git's Activity Graph" width="100%">
 </p>
 
 ---
