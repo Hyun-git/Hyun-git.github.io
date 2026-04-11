@@ -313,6 +313,29 @@ table, th, td {
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.4rem;
+  overflow: hidden;
+}
+
+.pf-project-thumbnail {
+  margin: 0 auto 1.4rem; /* 중앙 정렬 및 하단 여백 */
+  max-width: 50%; /* 가로 폭을 카드의 50%로 제한 */
+  overflow: hidden;
+  background: var(--accent-color);
+  line-height: 0;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 6px; /* 이미지 자체에 둥근 모서리 유지 */
+  }
+}
+
+@media (max-width: 600px) {
+  .pf-project-thumbnail {
+    max-width: 80%; /* 모바일에서는 조금 더 크게 보이도록 조절 */
+  }
 }
 
 .pf-project-header {

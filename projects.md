@@ -13,6 +13,9 @@ permalink: /projects
   <div class="pf-projects">
 
     <div class="pf-project-card">
+      <div class="pf-project-thumbnail">
+        <img src="/assets/images/farmeme.png" alt="Farmeme thumbnail">
+      </div>
       <div class="pf-project-header">
         <div>
           <h3 class="pf-project-name">Farmeme</h3>
@@ -32,6 +35,9 @@ permalink: /projects
     </div>
 
     <div class="pf-project-card">
+      <div class="pf-project-thumbnail">
+        <img src="/assets/images/twotoo.png" alt="Twotoo thumbnail">
+      </div>
       <div class="pf-project-header">
         <div>
           <h3 class="pf-project-name">Twotoo</h3>
