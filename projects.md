@@ -13,9 +13,11 @@ permalink: /projects
   <div class="pf-projects">
 
     <div class="pf-project-card">
-      <div class="pf-project-thumbnail">
-        <img src="/assets/images/farmeme.png" alt="Farmeme thumbnail">
-      </div>
+      <a href="/projects/farmeme" class="pf-project-thumbnail-link">
+        <div class="pf-project-thumbnail">
+          <img src="/assets/images/farmeme.png" alt="Farmeme thumbnail">
+        </div>
+      </a>
       <div class="pf-project-header">
         <div>
           <h3 class="pf-project-name">Farmeme</h3>
@@ -29,6 +31,7 @@ permalink: /projects
         <li>짧은 기간 내 다수의 API 개발과 백오피스 작업, 주간 스크럼을 통한 효율적 업무 분배</li>
       </ul>
       <div class="pf-project-links">
+        <a href="/projects/farmeme" class="pf-link">상세 보기</a>
         <a href="https://github.com/mash-up-kr/ppac-server" target="_blank" class="pf-link">GitHub</a>
         <a href="https://play.google.com/store/apps/details?id=team.ppac.app&hl=ko" target="_blank" class="pf-link">Android</a>
       </div>

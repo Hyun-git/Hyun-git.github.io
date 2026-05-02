@@ -326,6 +326,7 @@ table, th, td {
   overflow: hidden;
   background: var(--accent-color);
   line-height: 0;
+  transition: opacity 0.2s ease;
 
   img {
     width: 100%;
@@ -333,6 +334,18 @@ table, th, td {
     display: block;
     object-fit: contain;
     border-radius: 6px; /* 이미지 자체에 둥근 모서리 유지 */
+  }
+}
+
+.pf-project-thumbnail-link {
+  text-decoration: none;
+  display: block;
+  
+  &:hover {
+    text-decoration: none;
+    .pf-project-thumbnail {
+      opacity: 0.8;
+    }
   }
 }
 
