@@ -13,14 +13,14 @@ permalink: /projects
   <div class="pf-projects">
 
     <div class="pf-project-card">
-      <a href="/projects/farmeme" class="pf-project-thumbnail-link">
-        <div class="pf-project-thumbnail">
-          <img src="/assets/images/farmeme.png" alt="Farmeme thumbnail">
-        </div>
-      </a>
+      <div class="pf-project-thumbnail">
+        <img src="/assets/images/farmeme.png" alt="Farmeme thumbnail">
+      </div>
       <div class="pf-project-header">
         <div>
-          <h3 class="pf-project-name">Farmeme</h3>
+          <h3 class="pf-project-name">
+            <a href="/projects/farmeme" class="pf-stretched-link">Farmeme</a>
+          </h3>
           <p class="pf-project-org">Mash-Up 14기</p>
         </div>
         <span class="pf-period">2024.03 — 2024.10</span>
@@ -31,7 +31,6 @@ permalink: /projects
         <li>짧은 기간 내 다수의 API 개발과 백오피스 작업, 주간 스크럼을 통한 효율적 업무 분배</li>
       </ul>
       <div class="pf-project-links">
-        <a href="/projects/farmeme" class="pf-link">상세 보기</a>
         <a href="https://github.com/mash-up-kr/ppac-server" target="_blank" class="pf-link">GitHub</a>
         <a href="https://play.google.com/store/apps/details?id=team.ppac.app&hl=ko" target="_blank" class="pf-link">Android</a>
       </div>
@@ -43,7 +42,9 @@ permalink: /projects
       </div>
       <div class="pf-project-header">
         <div>
-          <h3 class="pf-project-name">Twotoo</h3>
+          <h3 class="pf-project-name">
+            <a href="/projects/twotoo" class="pf-stretched-link">Twotoo</a>
+          </h3>
           <p class="pf-project-org">Mash-Up 13기 — 커플 챌린지 앱</p>
         </div>
         <span class="pf-period">2023.03 — 진행중</span>
@@ -51,7 +52,7 @@ permalink: /projects
       <p class="pf-description">연인과 함께 22일간의 최소 목표 기간을 기반으로 새로운 습관 형성을 돕는 챌린지·기록 앱.</p>
       <ul>
         <li>Nest/Docker/ECR → Express/TypeScript/PM2 마이그레이션으로 장기 유지보수 효율 향상</li>
-        <li>MongoDB + Atlas Chart 기반 데이터 대시보드 구축으로 팀 전체 데이터 가시성 확보</li>
+        <li>MongoDB Atlas Chart 대시보드 구축 및 가입 유저 5,000명, 인증 수 40,000건 돌파</li>
       </ul>
       <div class="pf-project-links">
         <a href="https://github.com/team-twotoo" target="_blank" class="pf-link">GitHub</a>

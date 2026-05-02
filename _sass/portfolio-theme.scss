@@ -318,6 +318,26 @@ table, th, td {
   border-radius: 8px;
   padding: 1.4rem;
   overflow: hidden;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: var(--link-color);
+  }
+}
+
+.pf-stretched-link {
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+  }
 }
 
 .pf-project-thumbnail {
@@ -368,6 +388,15 @@ table, th, td {
   font-size: 1.05rem;
   font-weight: 700;
   margin: 0 0 0.2rem;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .pf-project-org {
@@ -392,6 +421,8 @@ table, th, td {
   display: flex;
   gap: 0.7rem;
   margin-top: 0.75rem;
+  position: relative;
+  z-index: 2;
 }
 
 .pf-link {
