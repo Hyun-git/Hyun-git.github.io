@@ -2,13 +2,14 @@
 layout: post
 title: Arkain (Global Cloud IDE & Container Platform)
 description: 구름 IDE의 글로벌 리브랜딩 및 컨테이너 기반 클라우드 플랫폼 개발
-image: /VM.png
+image: /assets/goorm/arkain.png
 ---
 
 ## 🚀 Project Overview
 
 **Arkain**은 전 세계 개발자들이 언제 어디서나 클라우드 자원을 활용해 개발할 수 있도록 컨테이너와 IDE를 제공하는 플랫폼입니다. 기존 서비스를 글로벌 시장에 맞춰 리브랜딩하고, 확장성 있는 아키텍처로 재설계하여 성공적으로 글로벌 런칭을 수행했습니다.
 
+- **Official Site**: [https://arkain.io/](https://arkain.io/)
 - **Role**: Backend Engineer / Full-Stack Developer
 - **Focus**: 글로벌 서비스 아키텍처, 사용량 기반 과금 시스템, 배포 자동화, AI(MCP) 통합
 

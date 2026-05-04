@@ -14,7 +14,7 @@ permalink: /projects
 
     <div class="pf-project-card">
       <div class="pf-project-thumbnail">
-        <img src="/VM.png" alt="Arkain thumbnail">
+        <img src="/assets/goorm/arkain.png" alt="Arkain thumbnail">
       </div>
       <div class="pf-project-header">
         <div>
@@ -32,7 +32,8 @@ permalink: /projects
         <li>MCP(AI) 기반 컨테이너 제어 사이드챗 개발로 사용자 경험(DX) 고도화</li>
       </ul>
       <div class="pf-project-links">
-        <a href="https://hyun-git.github.io/resume" class="pf-link">상세 보기 (Resume)</a>
+        <a href="https://arkain.io/" target="_blank" class="pf-link">Official Site (arkain.io)</a>
+        <a href="https://hyun-git.github.io/resume" class="pf-link">Resume</a>
       </div>
     </div>
 
