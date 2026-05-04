@@ -29,7 +29,6 @@ permalink: /projects
         <p class="pf-description">Docker 기반 레거시 인프라의 Kubernetes 전환과 글로벌 환경 공유를 위한 템플릿 에코시스템을 구축했습니다.</p>
         <div class="pf-project-links">
           <a href="https://arkain.io/" target="_blank" class="pf-link">Official Site</a>
-          <a href="/projects/arkain" class="pf-link">Case Study</a>
         </div>
       </div>
     </div>
@@ -50,7 +49,6 @@ permalink: /projects
         </div>
         <p class="pf-description">LLM과 MCP(Model Context Protocol)를 활용하여 자연어 기반의 클라우드 리소스 제어 인터페이스를 구축했습니다.</p>
         <div class="pf-project-links">
-          <a href="/projects/mcp" class="pf-link">Case Study</a>
         </div>
       </div>
     </div>
@@ -72,7 +70,7 @@ permalink: /projects
         <p class="pf-description">추천 밈 탐색 및 클립보드 저장 서비스입니다. 대용량 이미지 처리 최적화로 안정적인 서비스를 구현했습니다.</p>
         <div class="pf-project-links">
           <a href="https://github.com/mash-up-kr/ppac-server" target="_blank" class="pf-link">GitHub</a>
-          <a href="/projects/farmeme" class="pf-link">Case Study</a>
+          <a href="https://play.google.com/store/apps/details?id=team.ppac.app&hl=ko" target="_blank" class="pf-link">Android</a>
         </div>
       </div>
     </div>
@@ -94,7 +92,7 @@ permalink: /projects
         <p class="pf-description">연인과 함께 습관 형성을 돕는 챌린지 앱입니다. 시스템 마이그레이션과 데이터 대시보드로 운영 안정성을 확보했습니다.</p>
         <div class="pf-project-links">
           <a href="https://github.com/team-twotoo" target="_blank" class="pf-link">GitHub</a>
-          <a href="/projects/twotoo" class="pf-link">Case Study</a>
+          <a href="https://twotoo-landing.vercel.app/" target="_blank" class="pf-link">홈페이지</a>
         </div>
       </div>
     </div>
