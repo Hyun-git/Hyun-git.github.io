@@ -1,14 +1,14 @@
 ---
 layout: default
-title: AI-Powered Infrastructure Console (MCP)
+title: MCP Sidechat
 permalink: /projects/mcp
 ---
 
 <div class="subpage">
 
   <a href="/projects" class="back-link">← 프로젝트 목록</a>
-  <h1 class="subpage-title">AI-Powered Infrastructure Console (MCP)</h1>
-  <p class="subpage-desc">LLM과 MCP를 연동한 차세대 인텔리전트 클라우드 제어 시스템</p>
+  <h1 class="subpage-title">MCP Sidechat</h1>
+  <p class="subpage-desc">LLM과 MCP를 연동한 클라우드 콘솔 제어 인터페이스 개발</p>
 
   <div class="project-detail">
 
@@ -16,8 +16,7 @@ permalink: /projects/mcp
 
     <section class="project-section">
       <h2>Project Overview</h2>
-      <p>본 프로젝트는 복잡한 클라우드 리소스 조작을 자연어 인터페이스로 혁신하는 데 목적이 있습니다. 사용자의 질의를 LLM이 이해하고, MCP(Model Context Protocol)를 통해 실시간 리소스 상태 조회, 비용 계산, 환경 추천 등의 액션을 직접 수행합니다.</p>
-      <p>단순한 챗봇을 넘어, 인프라 데이터와 AI 사이의 가교 역할을 하는 분산 아키텍처를 설계하고 구현하는 데 집중했습니다.</p>
+      <p><strong>MCP Sidechat</strong>은 복잡한 클라우드 콘솔 조작을 대화형 인터페이스로 풀어낸 프로젝트입니다. MCP(Model Context Protocol)를 활용하여 LLM이 실시간 리소스 상태를 조회하고, 사용자의 요청에 따라 직접 인프라를 제어할 수 있는 환경을 구축했습니다.</p>
     </section>
 
     <section class="project-section">
