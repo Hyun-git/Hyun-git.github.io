@@ -2,6 +2,7 @@
 layout: default
 title: MCP Sidechat
 permalink: /projects/mcp
+image: /assets/goorm/mcp.png
 ---
 
 <div class="subpage">

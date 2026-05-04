@@ -38,7 +38,7 @@ permalink: /projects
 
     <div class="pf-project-card">
       <div class="pf-project-thumbnail">
-        <img src="/assets/goorm/arkain.png" alt="MCP Sidechat thumbnail">
+        <img src="/assets/goorm/mcp.png" alt="MCP Sidechat thumbnail">
       </div>
       <div class="pf-project-header">
         <div>
