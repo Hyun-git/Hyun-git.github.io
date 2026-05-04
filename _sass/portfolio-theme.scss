@@ -249,13 +249,6 @@ table, th, td {
   flex-shrink: 0;
 }
 
-.pf-description {
-  font-size: 0.93rem;
-  color: var(--meta-color);
-  margin: 0 0 1.2rem;
-  line-height: 1.7;
-}
-
 // Work items
 .pf-work-items {
   display: flex;
@@ -403,30 +396,22 @@ table, th, td {
     }
   }
 }
-
-.pf-project-org {
-  font-size: 0.83rem;
+.pf-description {
+  font-size: 0.93rem;
   color: var(--meta-color);
-  margin: 0;
+  margin: 0 0 1.2rem;
+  line-height: 1.7;
+  flex: 1; /* 가변 영역으로 설정하여 버튼을 아래로 밀어냄 */
 }
 
 .pf-project-card ul {
-  margin: 0.6rem 0 1rem;
-  padding-left: 1.1rem;
-  flex: 1; /* 리스트가 가변적으로 늘어나 버튼을 하단으로 밀어냄 */
-
-  li {
-    font-size: 0.88rem;
-    color: var(--meta-color);
-    margin-bottom: 0.3rem;
-    line-height: 1.65;
-  }
+  display: none; /* 리스트 제외 */
 }
 
 .pf-project-links {
   display: flex;
   gap: 0.7rem;
-  margin-top: 0.75rem;
+  margin-top: auto; /* 상단 요소를 밀어내고 항상 하단에 위치 */
   position: relative;
   z-index: 2;
 }
