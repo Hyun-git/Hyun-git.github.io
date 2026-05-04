@@ -14,6 +14,30 @@ permalink: /projects
 
     <div class="pf-project-card">
       <div class="pf-project-thumbnail">
+        <img src="/VM.png" alt="Arkain thumbnail">
+      </div>
+      <div class="pf-project-header">
+        <div>
+          <h3 class="pf-project-name">
+            <a href="/projects/arkain" class="pf-stretched-link">Arkain</a>
+          </h3>
+          <p class="pf-project-org">구름 (goorm) — Global Cloud IDE</p>
+        </div>
+        <span class="pf-period">2023.01 — 재직중</span>
+      </div>
+      <p class="pf-description">전 세계 개발자를 위한 컨테이너 기반 클라우드 개발 플랫폼. 글로벌 리브랜딩 및 확장성 있는 인프라 구축을 담당했습니다.</p>
+      <ul>
+        <li>Latency 기반 도메인 라우팅 및 K8s 마이그레이션을 통한 글로벌 인프라 최적화</li>
+        <li>Elasticsearch 기반의 실정량 과금 시스템 및 결제 멱등성 로직 설계</li>
+        <li>MCP(AI) 기반 컨테이너 제어 사이드챗 개발로 사용자 경험(DX) 고도화</li>
+      </ul>
+      <div class="pf-project-links">
+        <a href="https://hyun-git.github.io/resume" class="pf-link">상세 보기 (Resume)</a>
+      </div>
+    </div>
+
+    <div class="pf-project-card">
+      <div class="pf-project-thumbnail">
         <img src="/assets/images/farmeme.png" alt="Farmeme thumbnail">
       </div>
       <div class="pf-project-header">
