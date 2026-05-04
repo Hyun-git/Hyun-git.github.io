@@ -23,6 +23,9 @@ permalink: /projects/mcp
     <section class="project-section">
       <h2>System Architecture</h2>
       <p>네 개의 주요 컴포넌트가 유기적으로 통신하는 분산 시스템을 구축하여 보안과 확장성을 확보했습니다.</p>
+      <div class="architecture-diagram">
+        <img src="/assets/architecture/nexus/nexus_architecture_flow.png" alt="Arkain Nexus Architecture Diagram">
+      </div>
       <ul>
         <li><strong>ide-site (Interface):</strong> 유저 Chat UI 및 응답 유형별 뷰(하이라이팅, 페이지 이동) 처리</li>
         <li><strong>LLM-API-Server:</strong> 프롬프트 설계, 응답 가공 및 보안을 위한 개인정보(userId 등) 필터링 담당</li>
