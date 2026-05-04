@@ -117,7 +117,7 @@ permalink: /resume
         <div class="pf-timeline-header">
           <div>
             <h3 class="pf-org">서울시립대학교</h3>
-            <p class="pf-role-sm">컴퓨터 과학부</p>
+            <p class="pf-role-sm">컴퓨터과학부</p>
           </div>
           <span class="pf-period">2017.03 — 2023.01</span>
         </div>
