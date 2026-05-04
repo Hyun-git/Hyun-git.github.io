@@ -38,21 +38,22 @@ permalink: /projects
 
     <div class="pf-project-card">
       <div class="pf-project-thumbnail">
-        <img src="/assets/goorm/arkain.png" alt="MCP thumbnail">
+        <img src="/assets/goorm/arkain.png" alt="Arkain Nexus thumbnail">
       </div>
       <div class="pf-project-header">
         <div>
           <h3 class="pf-project-name">
-            <a href="/projects/mcp" class="pf-stretched-link">MCP Container Sidechat</a>
+            <a href="/projects/mcp" class="pf-stretched-link">Arkain Nexus (AI Console MCP)</a>
           </h3>
-          <p class="pf-project-org">구름 (goorm) — AI Interface</p>
+          <p class="pf-project-org">구름 (goorm) — AI Console Assistant</p>
         </div>
         <span class="pf-period">2024.11 — 2025.02</span>
       </div>
-      <p class="pf-description">자연어 기반의 컨테이너 제어를 위한 MCP(Model Context Protocol) 인터페이스 개발.</p>
+      <p class="pf-description">LLM과 MCP(Model Context Protocol)를 활용하여 자연어 기반의 클라우드 콘솔 제어 및 사용자 지원 시스템을 구축했습니다.</p>
       <ul>
-        <li>LLM ↔ 서버 인프라 간의 통신 규격 표준화 및 실행 엔진 설계</li>
-        <li>대화형 인터페이스를 통한 컨테이너 제어로 사용자 진입 장벽 완화</li>
+        <li>템플릿 추천, 크레딧 계산, 컨테이너 제어 등 인프라 조작을 위한 스마트 도구(Tools) 구현</li>
+        <li>GitBook AI 연동을 통한 RAG 기반 제품 가이드 및 릴리즈 노트 자동 답변 시스템 구축</li>
+        <li>보안을 위한 userId 필터링 및 분산 서버 간 인터페이스 표준화</li>
       </ul>
       <div class="pf-project-links">
         <a href="/projects/mcp" class="pf-link">Case Study</a>
