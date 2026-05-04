@@ -30,6 +30,9 @@ permalink: /projects/arkain
         <li>
           <strong>Template Ecosystem & API Integration</strong>
           <p>Docker 및 Project 메타데이터 자동 수집을 통해 사용자 입력 부하를 최소화한 템플릿 생성/수정 API(PUT)를 통합 구현했습니다. 유저 간 최적의 개발 환경을 손쉽게 공유하고 재사용할 수 있는 기반을 마련했습니다.</p>
+          <div class="architecture-diagram">
+            <img src="/assets/goorm/template.png" alt="Arkain Template System Interface">
+          </div>
         </li>
         <li>
           <strong>Secure Media Pipeline & State Management</strong>
@@ -38,6 +41,9 @@ permalink: /projects/arkain
         <li>
           <strong>Operations Automation (Slack Webhook)</strong>
           <p>사용자 신고 및 운영 이슈 발생 시 Slack 웹훅을 통해 실시간 알림을 전달하고, Slack 내 인터페이스에서 즉시 상태 변경이 가능하도록 운영 자동화 시스템을 구축했습니다.</p>
+          <div class="architecture-diagram">
+            <img src="/assets/goorm/slack_report.png" alt="Slack Webhook Integration for Operations">
+          </div>
         </li>
       </ul>
     </section>
