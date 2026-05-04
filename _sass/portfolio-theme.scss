@@ -352,9 +352,9 @@ table, th, td {
 
   img {
     width: 100%;
-    height: auto; /* 고정 높이 제거하여 세로로 꽉 차게 함 */
+    height: 200px; /* 고정 높이로 통일감을 줌 */
     display: block;
-    object-fit: contain; /* 이미지 전체가 다 보이도록 설정 */
+    object-fit: cover; /* 영역을 꽉 채우도록 설정 */
   }
 }
 
@@ -364,7 +364,7 @@ table, th, td {
     width: calc(100% + 2.8rem);
     
     img {
-      height: auto;
+      height: 160px; /* 모바일에서는 높이를 조금 줄임 */
     }
   }
 }
