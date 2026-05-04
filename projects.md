@@ -19,21 +19,43 @@ permalink: /projects
       <div class="pf-project-header">
         <div>
           <h3 class="pf-project-name">
-            <a href="/projects/arkain" class="pf-stretched-link">Arkain</a>
+            <a href="/projects/arkain" class="pf-stretched-link">Arkain Template System</a>
           </h3>
-          <p class="pf-project-org">구름 (goorm) — Global Cloud IDE</p>
+          <p class="pf-project-org">구름 (goorm) — Global IDE Ecosystem</p>
         </div>
         <span class="pf-period">2023.01 — 재직중</span>
       </div>
-      <p class="pf-description">전 세계 개발자를 위한 컨테이너 기반 클라우드 개발 플랫폼. 글로벌 리브랜딩 및 확장성 있는 인프라 구축을 담당했습니다.</p>
+      <p class="pf-description">글로벌 클라우드 IDE 환경의 공유 및 재사용을 위한 템플릿 에코시스템. API 최적화와 보안 검수 자동화 및 Slack 기반 운영 도구를 구축했습니다.</p>
       <ul>
-        <li>Latency 기반 도메인 라우팅 및 K8s 마이그레이션을 통한 글로벌 인프라 최적화</li>
-        <li>Elasticsearch 기반의 실정량 과금 시스템 및 결제 멱등성 로직 설계</li>
-        <li>MCP(AI) 기반 컨테이너 제어 사이드챗 개발로 사용자 경험(DX) 고도화</li>
+        <li>Docker/Project 메타데이터 기반 템플릿 생성/수정 API 통합 및 자동화</li>
+        <li>S3 Presigned URL 및 보안 검수 콜백 기반의 안전한 미디어 관리 파이프라인</li>
+        <li>Slack 웹훅 연동을 통한 실시간 신고 대응 및 운영 효율 개선</li>
       </ul>
       <div class="pf-project-links">
         <a href="https://arkain.io/" target="_blank" class="pf-link">Official Site (arkain.io)</a>
-        <a href="https://hyun-git.github.io/resume" class="pf-link">Resume</a>
+      </div>
+    </div>
+
+    <div class="pf-project-card">
+      <div class="pf-project-thumbnail">
+        <img src="/assets/goorm/arkain.png" alt="MCP thumbnail">
+      </div>
+      <div class="pf-project-header">
+        <div>
+          <h3 class="pf-project-name">
+            <a href="/projects/mcp" class="pf-stretched-link">MCP Container Sidechat</a>
+          </h3>
+          <p class="pf-project-org">구름 (goorm) — AI Interface</p>
+        </div>
+        <span class="pf-period">2024.11 — 2025.02</span>
+      </div>
+      <p class="pf-description">자연어 기반의 컨테이너 제어를 위한 MCP(Model Context Protocol) 인터페이스 개발.</p>
+      <ul>
+        <li>LLM ↔ 서버 인프라 간의 통신 규격 표준화 및 실행 엔진 설계</li>
+        <li>대화형 인터페이스를 통한 컨테이너 제어로 사용자 진입 장벽 완화</li>
+      </ul>
+      <div class="pf-project-links">
+        <a href="/projects/mcp" class="pf-link">Case Study</a>
       </div>
     </div>
 
