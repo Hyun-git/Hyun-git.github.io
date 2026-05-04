@@ -25,11 +25,11 @@ permalink: /projects
         </div>
         <span class="pf-period">2023.01 — 재직중</span>
       </div>
-      <p class="pf-description">글로벌 클라우드 IDE 환경의 공유 및 재사용을 위한 템플릿 에코시스템. API 최적화와 보안 검수 자동화 및 Slack 기반 운영 도구를 구축했습니다.</p>
+      <p class="pf-description">Docker 기반의 기존 서비스를 Kubernetes로 전환하고, 글로벌 환경 공유를 위한 템플릿 에코시스템을 구축한 리브랜딩 프로젝트입니다.</p>
       <ul>
-        <li>Docker/Project 메타데이터 기반 템플릿 생성/수정 API 통합 및 자동화</li>
-        <li>S3 Presigned URL 및 보안 검수 콜백 기반의 안전한 미디어 관리 파이프라인</li>
-        <li>Slack 웹훅 연동을 통한 실시간 신고 대응 및 운영 효율 개선</li>
+        <li>Docker 기반 인프라의 Kubernetes 전환을 통한 고가용성 및 확장성 확보</li>
+        <li>컨테이너 이미지 저장 및 공유를 위한 템플릿 시스템(API 통합, S3 업로드 파이프라인) 구축</li>
+        <li>Slack API 연동을 통한 실시간 운영 자동화 시스템 구축</li>
       </ul>
       <div class="pf-project-links">
         <a href="https://arkain.io/" target="_blank" class="pf-link">Official Site (arkain.io)</a>
