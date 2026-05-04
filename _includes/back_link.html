@@ -1,4 +1,6 @@
-{% if page.layout == "post" %}
+{% if page.url contains "/projects/" %}
+  <a href="{{ "/projects" | relative_url }}">{{ site.theme_config.back_home_text }}</a>
+{% elsif page.layout == "post" %}
   <a href="{{ "/study" | relative_url }}">{{ site.theme_config.back_home_text }}</a>
 {% else %}
   <a href="{{ "/" | relative_url }}">{{ site.theme_config.back_home_text }}</a>
