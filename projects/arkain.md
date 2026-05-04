@@ -1,14 +1,14 @@
 ---
 layout: default
-title: Arkain Template System
+title: Arkain Global Launching
 permalink: /projects/arkain
 ---
 
 <div class="subpage">
 
   <a href="/projects" class="back-link">← 프로젝트 목록</a>
-  <h1 class="subpage-title">Arkain Template System</h1>
-  <p class="subpage-desc">글로벌 클라우드 IDE 환경의 공유 및 재사용을 위한 템플릿 에코시스템 구축</p>
+  <h1 class="subpage-title">Arkain Global Launching</h1>
+  <p class="subpage-desc">글로벌 클라우드 IDE 환경 구축 및 템플릿 에코시스템 런칭</p>
 
   <div class="project-detail">
 

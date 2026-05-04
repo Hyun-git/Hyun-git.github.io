@@ -301,14 +301,14 @@ table, th, td {
 // Projects
 .pf-projects {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 데스크탑: 2열 그리드 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   width: 100%;
 }
 
 @media (max-width: 768px) {
   .pf-projects {
-    grid-template-columns: 1fr; /* 모바일: 1열 */
+    grid-template-columns: 1fr;
   }
 }
 
@@ -319,10 +319,10 @@ table, th, td {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  padding: 0; /* 패딩을 내부 요소로 이동하여 이미지 꽉 차게 구현 */
   overflow: hidden;
   position: relative;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
 
   &:hover {
     transform: translateY(-4px);
@@ -331,29 +331,31 @@ table, th, td {
   }
 }
 
-.pf-project-content {
-  padding: 1.4rem;
+.pf-project-thumbnail {
+  width: 100%;
+  height: 180px;
+  background: var(--accent-color);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  img {
+    max-width: 90%;
+    max-height: 85%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+.pf-project-body {
+  padding: 1.2rem;
   display: flex;
   flex-direction: column;
   flex: 1;
-}
-
-.pf-project-thumbnail {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  background: var(--accent-color);
-  border-bottom: 1px solid var(--border-color);
-  margin: 0;
-
-  img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: contain; /* 세로 높이에 맞춤 */
-    padding: 1rem; /* 이미지 주변 여백 */
-    box-sizing: border-box;
-  }
 }
 
 .pf-project-header {
@@ -368,33 +370,33 @@ table, th, td {
 .pf-project-name {
   font-size: 1.05rem;
   font-weight: 700;
-  margin: 0 0 0.2rem;
+  margin: 0;
 
   a {
     color: inherit;
     text-decoration: none;
-
-    &:hover {
-      text-decoration: none;
-    }
+    &:hover { text-decoration: none; }
   }
 }
+
+.pf-project-org {
+  font-size: 0.83rem;
+  color: var(--meta-color);
+  margin: 0.2rem 0 0;
+}
+
 .pf-description {
   font-size: 0.93rem;
   color: var(--meta-color);
   margin: 0 0 1.2rem;
   line-height: 1.7;
-  flex: 1; /* 가변 영역으로 설정하여 버튼을 아래로 밀어냄 */
-}
-
-.pf-project-card ul {
-  display: none; /* 리스트 제외 */
+  flex: 1;
 }
 
 .pf-project-links {
   display: flex;
   gap: 0.7rem;
-  margin-top: auto; /* 상단 요소를 밀어내고 항상 하단에 위치 */
+  margin-top: auto;
   position: relative;
   z-index: 2;
 }
@@ -413,6 +415,18 @@ table, th, td {
     opacity: 1;
     text-decoration: none;
     background: var(--tag-bg);
+  }
+}
+
+.pf-stretched-link {
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
   }
 }
 

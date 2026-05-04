@@ -20,7 +20,7 @@ permalink: /projects
         <div class="pf-project-header">
           <div>
             <h3 class="pf-project-name">
-              <a href="/projects/arkain" class="pf-stretched-link">Arkain Template System</a>
+              <a href="/projects/arkain" class="pf-stretched-link">Arkain Global Launching</a>
             </h3>
             <p class="pf-project-org">구름 (goorm) — Global IDE</p>
           </div>
