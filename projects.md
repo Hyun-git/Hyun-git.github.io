@@ -38,22 +38,22 @@ permalink: /projects
 
     <div class="pf-project-card">
       <div class="pf-project-thumbnail">
-        <img src="/assets/goorm/arkain.png" alt="Arkain Nexus thumbnail">
+        <img src="/assets/goorm/arkain.png" alt="AI Console thumbnail">
       </div>
       <div class="pf-project-header">
         <div>
           <h3 class="pf-project-name">
-            <a href="/projects/mcp" class="pf-stretched-link">Arkain Nexus (AI Console MCP)</a>
+            <a href="/projects/mcp" class="pf-stretched-link">AI-Powered Infrastructure Console (MCP)</a>
           </h3>
-          <p class="pf-project-org">구름 (goorm) — AI Console Assistant</p>
+          <p class="pf-project-org">Project Arkain — AI Assistant</p>
         </div>
         <span class="pf-period">2024.11 — 2025.02</span>
       </div>
-      <p class="pf-description">LLM과 MCP(Model Context Protocol)를 활용하여 자연어 기반의 클라우드 콘솔 제어 및 사용자 지원 시스템을 구축했습니다.</p>
+      <p class="pf-description">LLM과 MCP(Model Context Protocol)를 활용하여 자연어 기반의 클라우드 리소스 제어 및 사용자 지원 시스템을 구축했습니다.</p>
       <ul>
-        <li>템플릿 추천, 크레딧 계산, 컨테이너 제어 등 인프라 조작을 위한 스마트 도구(Tools) 구현</li>
-        <li>GitBook AI 연동을 통한 RAG 기반 제품 가이드 및 릴리즈 노트 자동 답변 시스템 구축</li>
-        <li>보안을 위한 userId 필터링 및 분산 서버 간 인터페이스 표준화</li>
+        <li>자원 추천, 비용 예측, 인프라 조작을 위한 스마트 도구(Tools) 및 컨트롤러 구현</li>
+        <li>RAG 기반 지식 베이스 연동을 통한 제품 가이드 및 릴리즈 노트 자동 응답 시스템</li>
+        <li>보안을 위한 데이터 필터링 및 분산 시스템 간 인터페이스 표준화</li>
       </ul>
       <div class="pf-project-links">
         <a href="/projects/mcp" class="pf-link">Case Study</a>
