@@ -341,37 +341,31 @@ table, th, td {
 }
 
 .pf-project-thumbnail {
-  margin: 0 auto 1.4rem; /* 중앙 정렬 및 하단 여백 */
-  max-width: 50%; /* 가로 폭을 카드의 50%로 제한 */
+  margin: -1.4rem -1.4rem 1.4rem -1.4rem; /* 상단 및 좌우 여백을 카드 패딩만큼 상쇄하여 꽉 차게 설정 */
+  width: calc(100% + 2.8rem);
+  max-width: none;
   overflow: hidden;
   background: var(--accent-color);
   line-height: 0;
   transition: opacity 0.2s ease;
+  border-bottom: 1px solid var(--border-color);
 
   img {
     width: 100%;
-    height: auto;
+    height: 200px; /* 고정 높이로 통일감을 줌 */
     display: block;
-    object-fit: contain;
-    border-radius: 6px; /* 이미지 자체에 둥근 모서리 유지 */
-  }
-}
-
-.pf-project-thumbnail-link {
-  text-decoration: none;
-  display: block;
-  
-  &:hover {
-    text-decoration: none;
-    .pf-project-thumbnail {
-      opacity: 0.8;
-    }
+    object-fit: cover; /* 이미지가 꽉 차도록 설정 */
   }
 }
 
 @media (max-width: 600px) {
   .pf-project-thumbnail {
-    max-width: 80%; /* 모바일에서는 조금 더 크게 보이도록 조절 */
+    margin: -1.4rem -1.4rem 1.4rem -1.4rem;
+    width: calc(100% + 2.8rem);
+    
+    img {
+      height: 160px; /* 모바일에서는 높이를 조금 줄임 */
+    }
   }
 }
 
