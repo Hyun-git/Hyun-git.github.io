@@ -23,9 +23,35 @@ permalink: /projects/mcp
     <section class="project-section">
       <h2>System Architecture</h2>
       <p>네 개의 주요 컴포넌트가 유기적으로 통신하는 분산 시스템을 구축하여 보안과 확장성을 확보했습니다.</p>
-      <div class="architecture-diagram">
-        <img src="/assets/architecture/nexus/nexus_architecture_flow.png" alt="Arkain Nexus Architecture Diagram">
+      
+      <div class="mermaid">
+      sequenceDiagram
+          participant User as 유저
+          participant IDE as ide-site
+          participant MCPClient as MCP-Client
+          participant MCPServer as nexus-console-server
+          participant LLMAPI as LLM-API-Server
+          participant LLM as External LLM
+
+          User->>IDE: 1. 쿼리 입력
+          IDE->>MCPClient: 2. Tool 실행 판단 요청
+          
+          alt Tool 필요 시
+              MCPClient->>MCPServer: 3. Tool 호출
+              MCPServer->>IDE: 4. 인프라 데이터 조회 (Credit/Container)
+              IDE-->>MCPServer: 데이터 응답
+              MCPServer-->>MCPClient: Tool 결과 반환
+          else Tool 불필요 시
+              Note over MCPClient: 바로 다음 단계 진행
+          end
+
+          MCPClient->>LLMAPI: 5. 1차 응답 및 컨텍스트 전달
+          LLMAPI->>LLM: 6. 최종 프롬프트 질의 (RAG/Filter 적용)
+          LLM-->>LLMAPI: 응답 생성
+          LLMAPI->>IDE: 7. 가공된 최종 응답 전달
+          IDE-->>User: 8. UI 반영 및 액션 수행
       </div>
+
       <ul>
         <li><strong>ide-site (Interface):</strong> 유저 Chat UI 및 응답 유형별 뷰(하이라이팅, 페이지 이동) 처리</li>
         <li><strong>LLM-API-Server:</strong> 프롬프트 설계, 응답 가공 및 보안을 위한 개인정보(userId 등) 필터링 담당</li>
