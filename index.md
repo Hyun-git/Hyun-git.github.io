@@ -36,7 +36,7 @@ layout: default
           <div class="pf-project-header">
             <div>
               <h3 class="pf-project-name">
-                <a href="/projects/arkain" class="pf-stretched-link">Arkain Global</a>
+                <a href="/projects/arkain" class="pf-stretched-link">Arkain Global Launching</a>
               </h3>
               <p class="pf-project-org">구름 (goorm)</p>
             </div>
@@ -65,9 +65,9 @@ layout: default
           </div>
           <p class="pf-description">LLM과 MCP를 활용한 자연어 기반 클라우드 리소스 제어 인터페이스 구축</p>
           <div class="pf-tags">
-            <span class="pf-tag">LLM</span>
+            <span class="pf-tag">Node.js</span>
+            <span class="pf-tag">TypeScript</span>
             <span class="pf-tag">MCP</span>
-            <span class="pf-tag">Python</span>
           </div>
         </div>
       </div>
@@ -110,7 +110,7 @@ layout: default
           <p class="pf-description">연인과 함께 습관 형성을 돕는 챌린지 앱. 시스템 마이그레이션 및 운영 안정성 확보</p>
           <div class="pf-tags">
             <span class="pf-tag">Node.js</span>
-            <span class="pf-tag">NestJS</span>
+            <span class="pf-tag">Express</span>
             <span class="pf-tag">MongoDB</span>
           </div>
         </div>

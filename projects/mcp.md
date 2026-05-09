@@ -13,7 +13,7 @@ image: /assets/goorm/mcp.png
 
   <div class="project-detail">
 
-    <p class="pf-project-org">구름 (goorm)| 2025.07 — 2026.03</p>
+    <p class="pf-project-org">구름 (goorm) | 2025.07 — 2026.03</p>
 
     <section class="project-section">
       <h2>Project Overview</h2>

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Farmeme (Farmeme)
+title: Farmeme
 permalink: /projects/farmeme
 ---
 
 <div class="subpage">
 
   <a href="/projects" class="back-link">← 프로젝트 목록</a>
-  <h1 class="subpage-title">Farmeme (Farmeme)</h1>
+  <h1 class="subpage-title">Farmeme</h1>
   <p class="subpage-desc">추천 밈 탐색 및 클립보드 저장 서비스</p>
 
   <div class="project-detail">
