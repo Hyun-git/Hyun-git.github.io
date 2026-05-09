@@ -500,11 +500,35 @@ table, th, td {
   flex: 1;
 }
 
+.home-name-container {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
 .home-name {
   font-size: 2.4rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin: 0 0 0.4rem;
+  margin: 0;
+}
+
+.home-resume-btn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--link-color);
+  border: 1px solid var(--link-color);
+  padding: 0.25rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--link-color);
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .home-role {
@@ -531,6 +555,35 @@ table, th, td {
   a {
     color: var(--meta-color);
     &:hover { color: var(--link-color); text-decoration: none; }
+  }
+}
+
+.home-section {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.home-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.5rem;
+}
+
+.home-section-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.home-more-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
@@ -692,6 +745,7 @@ ul.posts li a {
 @media (max-width: 600px) {
   .home-hero { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
   .home-profile-img { width: 100px; height: 100px; }
+  .home-name-container { align-items: center; gap: 0.8rem; }
   .home-name { font-size: 1.9rem; }
   .home-nav { grid-template-columns: 1fr; }
 

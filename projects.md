@@ -43,9 +43,9 @@ permalink: /projects
             <h3 class="pf-project-name">
               <a href="/projects/mcp" class="pf-stretched-link">MCP Sidechat</a>
             </h3>
-            <p class="pf-project-org">Project Arkain — AI Assistant</p>
+            <p class="pf-project-org">구름 (goorm)</p>
           </div>
-          <span class="pf-period">2024.11 — 2025.02</span>
+          <span class="pf-period">2025.07 — 2026.03</span>
         </div>
         <p class="pf-description">LLM과 MCP(Model Context Protocol)를 활용하여 자연어 기반의 클라우드 리소스 제어 인터페이스를 구축했습니다.</p>
         <div class="pf-project-links">
