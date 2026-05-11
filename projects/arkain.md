@@ -7,7 +7,12 @@ permalink: /projects/arkain
 <div class="subpage">
 
   <a href="/projects" class="back-link">← 프로젝트 목록</a>
-  <h1 class="subpage-title">Arkain Global Launching</h1>
+  <div class="project-title-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.5rem;">
+    <h1 class="subpage-title" style="margin-bottom: 0;">Arkain Global Launching</h1>
+    <div class="pf-project-links">
+      <a href="https://arkain.io/" target="_blank" class="pf-link">Official Site</a>
+    </div>
+  </div>
   <p class="subpage-desc">글로벌 클라우드 IDE 환경 구축 및 템플릿 에코시스템 런칭</p>
 
   <div class="project-detail">
@@ -17,7 +22,6 @@ permalink: /projects/arkain
     <section class="project-section">
       <h2>Project Overview</h2>
       <p>기존 Docker 기반의 단일 컨테이너 제공 서비스를 글로벌 시장에 적합한 확장성과 안정성을 갖춘 Kubernetes 기반 클라우드 플랫폼으로 현대화하고, 유저 간 개발 환경을 공유할 수 있는 템플릿 시스템을 구축한 프로젝트입니다.</p>
-      <p><a href="https://arkain.io/" target="_blank" class="pf-link">공식 홈페이지: arkain.io</a></p>
     </section>
 
     <section class="project-section">

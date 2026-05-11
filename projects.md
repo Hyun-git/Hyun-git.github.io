@@ -14,6 +14,28 @@ permalink: /projects
 
     <div class="pf-project-card">
       <div class="pf-project-thumbnail">
+        <img src="/assets/images/twotoo.png" alt="Twotoo thumbnail">
+      </div>
+      <div class="pf-project-body">
+        <div class="pf-project-header">
+          <div>
+            <h3 class="pf-project-name">
+              <a href="/projects/twotoo" class="pf-stretched-link">Twotoo</a>
+            </h3>
+            <p class="pf-project-org">Mash-Up 13기 — 커플 챌린지 앱</p>
+          </div>
+          <span class="pf-period">2023.03 — 진행중</span>
+        </div>
+        <p class="pf-description">연인과 함께 습관 형성을 돕는 챌린지 앱입니다. 시스템 마이그레이션과 데이터 대시보드로 운영 안정성을 확보했습니다.</p>
+        <div class="pf-project-links">
+          <a href="https://github.com/team-twotoo" target="_blank" class="pf-link">GitHub</a>
+          <a href="https://twotoo-landing.vercel.app/" target="_blank" class="pf-link">홈페이지</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pf-project-card">
+      <div class="pf-project-thumbnail">
         <img src="/assets/goorm/arkain.png" alt="Arkain thumbnail">
       </div>
       <div class="pf-project-body">
@@ -71,28 +93,6 @@ permalink: /projects
         <div class="pf-project-links">
           <a href="https://github.com/mash-up-kr/ppac-server" target="_blank" class="pf-link">GitHub</a>
           <a href="https://play.google.com/store/apps/details?id=team.ppac.app&hl=ko" target="_blank" class="pf-link">Android</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pf-project-card">
-      <div class="pf-project-thumbnail">
-        <img src="/assets/images/twotoo.png" alt="Twotoo thumbnail">
-      </div>
-      <div class="pf-project-body">
-        <div class="pf-project-header">
-          <div>
-            <h3 class="pf-project-name">
-              <a href="/projects/twotoo" class="pf-stretched-link">Twotoo</a>
-            </h3>
-            <p class="pf-project-org">Mash-Up 13기 — 커플 챌린지 앱</p>
-          </div>
-          <span class="pf-period">2023.03 — 진행중</span>
-        </div>
-        <p class="pf-description">연인과 함께 습관 형성을 돕는 챌린지 앱입니다. 시스템 마이그레이션과 데이터 대시보드로 운영 안정성을 확보했습니다.</p>
-        <div class="pf-project-links">
-          <a href="https://github.com/team-twotoo" target="_blank" class="pf-link">GitHub</a>
-          <a href="https://twotoo-landing.vercel.app/" target="_blank" class="pf-link">홈페이지</a>
         </div>
       </div>
     </div>

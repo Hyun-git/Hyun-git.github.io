@@ -7,7 +7,13 @@ permalink: /projects/farmeme
 <div class="subpage">
 
   <a href="/projects" class="back-link">← 프로젝트 목록</a>
-  <h1 class="subpage-title">Farmeme</h1>
+  <div class="project-title-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.5rem;">
+    <h1 class="subpage-title" style="margin-bottom: 0;">Farmeme</h1>
+    <div class="pf-project-links">
+      <a href="https://github.com/mash-up-kr/ppac-server" target="_blank" class="pf-link">GitHub</a>
+      <a href="https://play.google.com/store/apps/details?id=team.ppac.app&hl=ko" target="_blank" class="pf-link">Android</a>
+    </div>
+  </div>
   <p class="subpage-desc">추천 밈 탐색 및 클립보드 저장 서비스</p>
 
   <div class="project-detail">

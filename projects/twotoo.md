@@ -7,7 +7,13 @@ permalink: /projects/twotoo
 <div class="subpage">
 
   <a href="/projects" class="back-link">← 프로젝트 목록</a>
-  <h1 class="subpage-title">Twotoo (투투)</h1>
+  <div class="project-title-container" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 0.5rem;">
+    <h1 class="subpage-title" style="margin-bottom: 0;">Twotoo (투투)</h1>
+    <div class="pf-project-links">
+      <a href="https://github.com/team-twotoo" target="_blank" class="pf-link">GitHub</a>
+      <a href="https://twotoo-landing.vercel.app/" target="_blank" class="pf-link">홈페이지</a>
+    </div>
+  </div>
   <p class="subpage-desc">연인과 함께 22일간의 최소 목표 기간을 기반으로 새로운 습관 형성을 돕는 챌린지·기록 앱</p>
 
   <div class="project-detail">

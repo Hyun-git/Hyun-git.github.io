@@ -30,6 +30,28 @@ layout: default
     <div class="pf-projects">
       <div class="pf-project-card">
         <div class="pf-project-thumbnail">
+          <img src="/assets/images/twotoo.png" alt="Twotoo thumbnail">
+        </div>
+        <div class="pf-project-body">
+          <div class="pf-project-header">
+            <div>
+              <h3 class="pf-project-name">
+                <a href="/projects/twotoo" class="pf-stretched-link">Twotoo</a>
+              </h3>
+              <p class="pf-project-org">Mash-Up 13기</p>
+            </div>
+          </div>
+          <p class="pf-description">연인과 함께 습관 형성을 돕는 챌린지 앱. 시스템 마이그레이션 및 운영 안정성 확보</p>
+          <div class="pf-tags">
+            <span class="pf-tag">Node.js</span>
+            <span class="pf-tag">Express</span>
+            <span class="pf-tag">MongoDB</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pf-project-card">
+        <div class="pf-project-thumbnail">
           <img src="/assets/goorm/arkain.png" alt="Arkain thumbnail">
         </div>
         <div class="pf-project-body">
@@ -90,28 +112,6 @@ layout: default
             <span class="pf-tag">Node.js</span>
             <span class="pf-tag">Express</span>
             <span class="pf-tag">TypeScript</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pf-project-card">
-        <div class="pf-project-thumbnail">
-          <img src="/assets/images/twotoo.png" alt="Twotoo thumbnail">
-        </div>
-        <div class="pf-project-body">
-          <div class="pf-project-header">
-            <div>
-              <h3 class="pf-project-name">
-                <a href="/projects/twotoo" class="pf-stretched-link">Twotoo</a>
-              </h3>
-              <p class="pf-project-org">Mash-Up 13기</p>
-            </div>
-          </div>
-          <p class="pf-description">연인과 함께 습관 형성을 돕는 챌린지 앱. 시스템 마이그레이션 및 운영 안정성 확보</p>
-          <div class="pf-tags">
-            <span class="pf-tag">Node.js</span>
-            <span class="pf-tag">Express</span>
-            <span class="pf-tag">MongoDB</span>
           </div>
         </div>
       </div>
