@@ -105,16 +105,19 @@ image: /assets/goorm/mcp.png
       <div class="pf-tags">
         <span class="pf-tag">Node.js</span>
         <span class="pf-tag">TypeScript</span>
+        <span class="pf-tag">NestJS</span>
         <span class="pf-tag">MCP (Model Context Protocol)</span>
         <span class="pf-tag">LLM Integration</span>
-        <span class="pf-tag">Distributed Systems</span>
-        <span class="pf-tag">Mermaid Diagram</span>
+        <span class="pf-tag">RAG</span>
       </div>
     </section>
 
   </div>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 
 <style>
 .project-detail h2 {

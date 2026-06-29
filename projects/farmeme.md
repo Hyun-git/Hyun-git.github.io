@@ -37,16 +37,26 @@ permalink: /projects/farmeme
       <h2>Key Technical Points</h2>
       <ul>
         <li>
-          <strong>이미지 압축 및 처리 (Sharp / HEIC)</strong>
-          <p>아이폰 등에서 업로드되는 대용량 이미지(HEIC 등)의 처리 지연 문제를 해결하기 위해, 서버 사이드에서 Sharp 라이브러리를 활용한 압축 및 포맷 변환을 적용했습니다. 이를 통해 S3 저장 비용 절감과 클라이언트 로딩 속도를 개선했습니다.</p>
+          <strong>이미지 압축 및 처리 파이프라인 (Sharp / HEIC)</strong>
+          <p>아이폰에서 촬영된 HEIC 포맷 이미지를 비롯한 대용량 이미지가 그대로 업로드되면서 응답 지연과 S3 저장 비용 증가가 발생했습니다. 서버 사이드에서 Sharp 라이브러리를 활용해 포맷 변환 및 품질 압축 파이프라인을 구성하여 이미지 처리 흐름을 표준화했습니다.</p>
         </li>
         <li>
-          <strong>Layered Architecture (Express/Node.js)</strong>
-          <p>Controller - Service - Model 레이어로 명확히 구분하여 비즈니스 로직의 응집도를 높이고 유지보수성을 확보했습니다.</p>
+          <strong>Layered Architecture (Controller - Service - Model)</strong>
+          <p>Controller - Service - Model 레이어를 명확히 분리하여 비즈니스 로직의 응집도를 높이고 유지보수성을 확보했습니다. 밈 추천 로직과 검색 로직을 Service 레이어에서 독립적으로 관리하여 각 기능의 수정이 다른 레이어에 영향을 주지 않도록 설계했습니다.</p>
         </li>
         <li>
-          <strong>CI/CD & Infrastructure</strong>
-          <p>GitHub Actions를 통해 빌드, 테스트, 배포 과정을 자동화했습니다. AWS S3를 활용한 이미지 스토리지와 MongoDB Atlas를 통한 데이터 관리를 수행합니다.</p>
+          <strong>CI/CD 자동화 (GitHub Actions)</strong>
+          <p>Pull Request 생성 시 lint, 타입 검사, 단위 테스트를 자동 실행하고, main 브랜치 병합 시 EC2 자동 배포까지 이어지는 파이프라인을 구성했습니다. 배포 과정의 수동 개입을 없애 개발 사이클을 단축했습니다.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="project-section">
+      <h2>Technical Challenges</h2>
+      <ul>
+        <li>
+          <strong>PNG 이미지 압축 — quality를 낮춰도 크기가 안 줄었던 이유</strong>
+          <p>Sharp로 PNG 이미지를 처리할 때 <code>quality(80)</code> 옵션을 설정했음에도 파일 크기가 전혀 줄지 않는 현상을 발견했습니다. 원인은 PNG의 무손실(lossless) 압축 방식에 있었습니다. PNG는 quality 옵션이 적용되지 않으며, 파일 크기를 줄이려면 WebP 또는 JPEG로 포맷 자체를 변환해야 합니다. (<a href="/png-압축-quality를-낮춰도-크기가-안-줄었던-이유.html">관련 글</a>)</p>
         </li>
       </ul>
     </section>

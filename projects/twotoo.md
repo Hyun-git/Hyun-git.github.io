@@ -23,6 +23,16 @@ permalink: /projects/twotoo
     <section class="project-section">
       <h2>Project Overview</h2>
       <p>Twotoo는 연인이 서로의 습관 형성을 독려하고 기록하는 서비스입니다. 22일이라는 최소 목표 기간을 설정하여 작은 습관부터 차근차근 만들어갈 수 있도록 돕습니다. 챌린지 생성, 인증샷 기록, 서로 찌르기(알림) 등의 기능을 제공합니다.</p>
+      <div class="project-stats">
+        <div class="stat-item">
+          <span class="stat-number">5,000+</span>
+          <span class="stat-label">가입 유저</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">40,000+</span>
+          <span class="stat-label">챌린지 인증 수</span>
+        </div>
+      </div>
     </section>
 
     <section class="project-section">
@@ -107,5 +117,30 @@ permalink: /projects/twotoo
   margin: 0;
   font-size: 0.93rem;
   color: var(--meta-color);
+}
+.project-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.2rem;
+  padding: 1rem 1.5rem;
+  background: var(--bg-secondary, #f8f8f8);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.stat-number {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.2;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--meta-color);
+  margin-top: 0.2rem;
 }
 </style>
