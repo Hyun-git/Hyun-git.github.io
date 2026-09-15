@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="Menlo, Consolas, monospace" font-size="15">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .note { fill: #666; font-size: 13px; }
+    .code { fill: #333; font-size: 13px; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="40" y="10" width="680" height="55" rx="6" class="box"/>
+  <text x="380" y="33" text-anchor="middle" class="label">클라이언트: 연결 끊김 → 재연결 시도</text>
+  <text x="380" y="52" text-anchor="middle" class="note">이 소켓은 lastEventId를 들고 있던 적이 없음</text>
+
+  <line x1="380" y1="65" x2="380" y2="100" class="arrow"/>
+
+  <rect x="40" y="100" width="680" height="70" rx="6" class="fail"/>
+  <text x="380" y="125" text-anchor="middle" class="fail-label">agent:subscribe 재구독 payload에 lastEventId 없음</text>
+  <text x="380" y="148" text-anchor="middle" class="code">emit('agent:subscribe', { roomId, messageId })</text>
+
+  <line x1="380" y1="170" x2="380" y2="205" class="arrow"/>
+
+  <rect x="40" y="205" width="680" height="60" rx="6" class="box"/>
+  <text x="380" y="230" text-anchor="middle" class="label">서버: agent:subscribe 수신, lastEventId는 optional 필드</text>
+  <text x="380" y="250" text-anchor="middle" class="note">다른 스트림 기능과 같은 구독 핸들러를 공유</text>
+
+  <line x1="380" y1="265" x2="380" y2="300" class="arrow"/>
+
+  <rect x="40" y="300" width="680" height="60" rx="6" class="box"/>
+  <text x="380" y="325" text-anchor="middle" class="label">lastEventId 없음 → 기본값 '0-0'으로 처리</text>
+  <text x="380" y="345" text-anchor="middle" class="note">"스트림 맨 처음부터" 라는 뜻</text>
+
+  <line x1="380" y1="360" x2="380" y2="395" class="arrow"/>
+
+  <rect x="40" y="395" width="680" height="90" rx="6" class="fail"/>
+  <text x="380" y="425" text-anchor="middle" class="fail-label">해당 대화의 이벤트를 스트림 시작 지점부터 전체 재전송</text>
+  <text x="380" y="448" text-anchor="middle" class="note">대화가 길수록, 재연결이 잦을수록 재전송량이 계속 늘어남</text>
+  <text x="380" y="467" text-anchor="middle" class="note">(실패 지점: 클라이언트가 lastEventId를 애초에 몰랐음)</text>
+</svg>

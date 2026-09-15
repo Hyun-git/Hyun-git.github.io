@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="880" viewBox="0 0 760 880" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .commit { fill: #fff3cd; stroke: #b8860b; stroke-width: 1.5; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .commit-label { fill: #7a5c00; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .note { fill: #666; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="30" y="15" width="700" height="50" rx="6" class="box"/>
+  <text x="380" y="37" text-anchor="middle" class="label">멤버 A: SECONDARY → PRIMARY → SECONDARY</text>
+  <text x="380" y="55" text-anchor="middle" class="note">수 초 만에 앞뒤로 뒤집힘 (불안정 징후)</text>
+
+  <line x1="380" y1="65" x2="380" y2="100" class="arrow"/>
+
+  <rect x="30" y="100" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="123" text-anchor="middle" class="label">config version 그대로, term(선거 임기)만 계속 상승</text>
+  <text x="380" y="141" text-anchor="middle" class="note">재선거(election)가 반복되고 있었다는 뜻</text>
+
+  <line x1="380" y1="155" x2="380" y2="190" class="arrow"/>
+
+  <rect x="30" y="190" width="700" height="70" rx="6" class="commit"/>
+  <text x="380" y="213" text-anchor="middle" class="commit-label">config version 변경 — 멤버 하나의 priority가 명시적으로 재설정</text>
+  <text x="380" y="233" text-anchor="middle" class="note">워크로드가 만드는 이벤트가 아니라 외부 명령으로 발생한 이벤트</text>
+  <text x="380" y="249" text-anchor="middle" class="note">(관리형 클러스터의 유지보수 정황)</text>
+
+  <line x1="380" y1="260" x2="380" y2="295" class="arrow"/>
+
+  <rect x="30" y="295" width="700" height="60" rx="6" class="box"/>
+  <text x="380" y="320" text-anchor="middle" class="label">새 primary 선출 → 22초 뒤 다른 멤버가 다시 primary로</text>
+  <text x="380" y="340" text-anchor="middle" class="note">연속 재선거</text>
+
+  <line x1="380" y1="355" x2="380" y2="390" class="arrow"/>
+
+  <rect x="30" y="390" width="700" height="80" rx="6" class="fail"/>
+  <text x="380" y="415" text-anchor="middle" class="fail-label">직전 primary가 SECONDARY로 강등 + ROLLBACK 발생</text>
+  <text x="380" y="437" text-anchor="middle" class="note">자신이 primary였을 때 받은 쓰기를 되돌림</text>
+  <text x="380" y="455" text-anchor="middle" class="note">(애플리케이션 쪽에서 실제로 체감한 지점)</text>
+
+  <line x1="380" y1="470" x2="380" y2="505" class="arrow"/>
+
+  <rect x="30" y="505" width="700" height="60" rx="6" class="ok"/>
+  <text x="380" y="530" text-anchor="middle" class="ok-label">"msg":"Shutting down", exitCode: 0</text>
+  <text x="380" y="550" text-anchor="middle" class="note">크래시가 아니라 정상적인 순서를 밟은 종료</text>
+
+  <line x1="380" y1="565" x2="380" y2="600" class="arrow"/>
+
+  <rect x="30" y="600" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="623" text-anchor="middle" class="label">재기동 → SECONDARY로 복귀, 다른 멤버가 다시 primary로</text>
+  <text x="380" y="641" text-anchor="middle" class="note">클러스터 관리용 에이전트 커넥션은 계속 붙어있었음</text>
+
+  <line x1="380" y1="655" x2="380" y2="690" class="arrow"/>
+
+  <rect x="30" y="690" width="700" height="60" rx="6" class="commit"/>
+  <text x="380" y="715" text-anchor="middle" class="commit-label">config version 한 번 더 변경 — 다른 멤버의 priority도 조정</text>
+  <text x="380" y="735" text-anchor="middle" class="note">동일한 패턴의 반복</text>
+
+  <line x1="380" y1="750" x2="380" y2="785" class="arrow"/>
+
+  <rect x="30" y="785" width="700" height="80" rx="6" class="box"/>
+  <text x="380" y="810" text-anchor="middle" class="label">몇 시간 뒤 같은 노드가 같은 패턴(정상 종료 → 재기동)을 반복</text>
+  <text x="380" y="830" text-anchor="middle" class="note">Fatal/Error 로그 없음, OOM·SIGKILL·디스크 부족 흔적 없음</text>
+  <text x="380" y="848" text-anchor="middle" class="note">→ 장애가 아니라 계획된 유지보수 작업</text>
+</svg>

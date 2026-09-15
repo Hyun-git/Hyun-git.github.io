@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="620" viewBox="0 0 720 620" font-family="Menlo, Consolas, monospace" font-size="15">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .note { fill: #666; font-size: 13px; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <text x="360" y="24" text-anchor="middle" class="label" font-weight="bold">수동 compact 반복 시도 결과 (매번 결과가 달랐음)</text>
+
+  <rect x="40" y="45" width="640" height="60" rx="6" class="ok"/>
+  <text x="360" y="70" text-anchor="middle" class="ok-label">1차 시도: 9.26GB 회수</text>
+  <text x="360" y="90" text-anchor="middle" class="note">freeStorageSize(재사용 가능 표시량)와 거의 일치</text>
+
+  <line x1="360" y1="105" x2="360" y2="140" class="arrow"/>
+
+  <rect x="40" y="140" width="640" height="60" rx="6" class="fail"/>
+  <text x="360" y="165" text-anchor="middle" class="fail-label">2차 시도: 0바이트 회수</text>
+  <text x="360" y="185" text-anchor="middle" class="note">직후 재실행인데도 아무것도 회수되지 않음</text>
+
+  <line x1="360" y1="200" x2="360" y2="235" class="arrow"/>
+
+  <rect x="40" y="235" width="640" height="60" rx="6" class="fail"/>
+  <text x="360" y="260" text-anchor="middle" class="fail-label">3차 시도: 24KB 회수</text>
+  <text x="360" y="280" text-anchor="middle" class="note">사실상 회수 없음</text>
+
+  <line x1="360" y1="295" x2="360" y2="330" class="arrow"/>
+
+  <rect x="40" y="330" width="640" height="90" rx="6" class="fail"/>
+  <text x="360" y="358" text-anchor="middle" class="fail-label">한참 뒤 재확인: storageSize 4.12GB → 10.35GB로 재증가</text>
+  <text x="360" y="380" text-anchor="middle" class="note">compact로 줄였던 것보다 오히려 커짐</text>
+  <text x="360" y="398" text-anchor="middle" class="note">autoCompact가 자체 재정리를 시도하다 파일을 다시 키운 것으로 추정</text>
+
+  <line x1="360" y1="420" x2="360" y2="455" class="arrow"/>
+
+  <rect x="40" y="455" width="640" height="70" rx="6" class="box"/>
+  <text x="360" y="483" text-anchor="middle" class="label">결론: compact는 "best-effort"라 결과를 예측할 수 없음</text>
+  <text x="360" y="503" text-anchor="middle" class="note">확실한 회수는 drop() 후 재생성뿐</text>
+
+  <text x="360" y="560" text-anchor="middle" class="note">※ 각 시도의 수치는 본문에 기록된 실측값을 시간순으로 재구성한 타임라인</text>
+</svg>

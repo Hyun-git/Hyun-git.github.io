@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); fill: none; }
+    .note { fill: #666; font-size: 12px; }
+    .col-title { font-size: 15px; font-weight: bold; fill: #222; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="40" y="10" width="680" height="55" rx="6" class="box"/>
+  <text x="380" y="32" text-anchor="middle" class="label">몽키패치: llm.invoke / llm.stream을 p-limit으로 감싼 버전으로 교체</text>
+  <text x="380" y="50" text-anchor="middle" class="note">패치된 메서드는 이 인스턴스의 own-property로만 존재</text>
+
+  <line x1="380" y1="65" x2="380" y2="100" class="arrow"/>
+
+  <rect x="40" y="100" width="680" height="55" rx="6" class="box"/>
+  <text x="380" y="122" text-anchor="middle" class="label">에이전트가 호출마다 llm.bindTools(tools) 실행</text>
+  <text x="380" y="140" text-anchor="middle" class="note">내부적으로 withConfig() → new ChatOpenAI(this.fields)</text>
+
+  <line x1="380" y1="155" x2="205" y2="190" class="arrow"/>
+  <line x1="380" y1="155" x2="555" y2="190" class="arrow"/>
+
+  <text x="205" y="205" text-anchor="middle" class="col-title">요청 1</text>
+  <text x="555" y="205" text-anchor="middle" class="col-title">요청 2</text>
+
+  <rect x="40" y="215" width="330" height="60" rx="6" class="fail"/>
+  <text x="205" y="238" text-anchor="middle" class="fail-label">새 인스턴스 A 생성</text>
+  <text x="205" y="258" text-anchor="middle" class="note">patch는 원본 인스턴스에만 있었음 → A는 미패치</text>
+
+  <rect x="390" y="215" width="330" height="60" rx="6" class="fail"/>
+  <text x="555" y="238" text-anchor="middle" class="fail-label">새 인스턴스 B 생성</text>
+  <text x="555" y="258" text-anchor="middle" class="note">patch는 원본 인스턴스에만 있었음 → B는 미패치</text>
+
+  <line x1="205" y1="275" x2="205" y2="310" class="arrow"/>
+  <line x1="555" y1="275" x2="555" y2="310" class="arrow"/>
+
+  <rect x="40" y="310" width="330" height="55" rx="6" class="fail"/>
+  <text x="205" y="332" text-anchor="middle" class="fail-label">A.invoke() 호출</text>
+  <text x="205" y="350" text-anchor="middle" class="note">제한 로직 없는 원본 invoke 실행</text>
+
+  <rect x="390" y="310" width="330" height="55" rx="6" class="fail"/>
+  <text x="555" y="332" text-anchor="middle" class="fail-label">B.invoke() 호출</text>
+  <text x="555" y="350" text-anchor="middle" class="note">제한 로직 없는 원본 invoke 실행</text>
+
+  <path d="M205,365 C205,410 380,410 380,410" class="arrow"/>
+  <path d="M555,365 C555,410 380,410 380,410" class="arrow"/>
+
+  <rect x="40" y="410" width="680" height="90" rx="6" class="fail"/>
+  <text x="380" y="438" text-anchor="middle" class="fail-label">limit.activeCount 변화 없음 → 동시성 제한이 전혀 적용되지 않음</text>
+  <text x="380" y="462" text-anchor="middle" class="note">호출마다 bindTools()가 새 인스턴스를 만들기 때문에</text>
+  <text x="380" y="480" text-anchor="middle" class="note">몽키패치는 한 번도 실제 호출 경로에 올라타지 못한다</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="460" viewBox="0 0 760 460" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .note { fill: #666; font-size: 12px; }
+    .col-title { font-size: 16px; font-weight: bold; fill: #222; }
+  </style>
+
+  <text x="380" y="26" text-anchor="middle" class="col-title">db.stats() / db.collection.stats() 비교 (개념도)</text>
+
+  <text x="190" y="55" text-anchor="middle" class="label" font-weight="bold">문서 수 (count)</text>
+  <text x="570" y="55" text-anchor="middle" class="label" font-weight="bold">storageSize</text>
+
+  <!-- count: before (tall) vs after (near zero) -->
+  <rect x="120" y="90" width="70" height="220" class="box"/>
+  <text x="155" y="80" text-anchor="middle" class="note">삭제 전</text>
+  <rect x="220" y="308" width="70" height="2" class="ok"/>
+  <text x="255" y="80" text-anchor="middle" class="note">삭제 후</text>
+
+  <text x="155" y="330" text-anchor="middle" class="note">다수의 문서</text>
+  <text x="255" y="330" text-anchor="middle" class="ok-label">count: 0</text>
+
+  <!-- storage: before (tall) vs after (still tall) -->
+  <rect x="500" y="90" width="70" height="220" class="box"/>
+  <text x="535" y="80" text-anchor="middle" class="note">삭제 전</text>
+  <rect x="600" y="90" width="70" height="220" class="fail"/>
+  <text x="635" y="80" text-anchor="middle" class="note">삭제 후</text>
+
+  <text x="535" y="330" text-anchor="middle" class="note">storageSize: 3.4GB</text>
+  <text x="635" y="330" text-anchor="middle" class="fail-label">storageSize: 3.4GB (그대로)</text>
+
+  <line x1="380" y1="90" x2="380" y2="310" stroke="#ccc" stroke-width="1"/>
+
+  <rect x="120" y="370" width="550" height="60" rx="6" class="fail"/>
+  <text x="395" y="393" text-anchor="middle" class="fail-label">문서 수는 0으로 줄었지만 storageSize는 그대로</text>
+  <text x="395" y="412" text-anchor="middle" class="note">freeStorageSize만 "재사용 가능"으로 표시되고 실제 파일 크기는 그대로였음</text>
+
+  <text x="380" y="450" text-anchor="middle" class="note">※ 막대 높이는 개념적 비교용이며 실제 축척과 무관함 (수치는 본문 1차 테스트 실측값)</text>
+</svg>

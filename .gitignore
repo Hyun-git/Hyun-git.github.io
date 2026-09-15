@@ -7,3 +7,5 @@ vendor
 .DS_Store
 favicon.ico
 .well-known
+.omc
+notion-sources

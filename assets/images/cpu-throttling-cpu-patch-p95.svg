@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="560" viewBox="0 0 720 560" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .axis { stroke: #333; stroke-width: 1.5; }
+    .grid { stroke: #ccc; stroke-width: 1; stroke-dasharray: 4 3; }
+    .slo { stroke: #c0392b; stroke-width: 1.5; stroke-dasharray: 6 4; }
+    .note { fill: #666; font-size: 12px; }
+    .title { font-size: 16px; font-weight: bold; fill: #222; }
+    .bracket { stroke: #333; stroke-width: 1.5; }
+  </style>
+
+  <text x="360" y="28" text-anchor="middle" class="title">CPU 500m &#8594; 1000m 패치 전후 p95 지연 비교</text>
+  <text x="360" y="48" text-anchor="middle" class="note">동일 40명 동시 접속 테스트, 두 조건 모두 에러율 0%</text>
+
+  <!-- axes -->
+  <line x1="70" y1="80" x2="70" y2="420" class="axis"/>
+  <line x1="70" y1="420" x2="650" y2="420" class="axis"/>
+
+  <!-- gridlines / y labels -->
+  <line x1="70" y1="420" x2="650" y2="420" class="grid"/>
+  <text x="60" y="424" text-anchor="end" class="note">0</text>
+
+  <line x1="70" y1="177.1" x2="650" y2="177.1" class="grid"/>
+  <text x="60" y="181" text-anchor="end" class="note">1000ms</text>
+
+  <line x1="70" y1="298.6" x2="650" y2="298.6" class="slo"/>
+  <text x="655" y="302" text-anchor="start" class="fail-label">SLO 500ms</text>
+
+  <!-- bars: 500m deduct/poll (fail), 1000m deduct/poll (ok) -->
+  <rect x="110" y="98.0" width="80" height="322.0" class="fail"/>
+  <text x="150" y="88" text-anchor="middle" class="fail-label">1326.4ms</text>
+  <text x="150" y="435" text-anchor="middle" class="label">deduct p95</text>
+
+  <rect x="210" y="128.6" width="80" height="291.4" class="fail"/>
+  <text x="250" y="118.6" text-anchor="middle" class="fail-label">1200.1ms</text>
+  <text x="250" y="435" text-anchor="middle" class="label">poll p95</text>
+
+  <rect x="350" y="332.2" width="80" height="87.8" class="ok"/>
+  <text x="390" y="322.2" text-anchor="middle" class="ok-label">361.5ms</text>
+  <text x="390" y="435" text-anchor="middle" class="label">deduct p95</text>
+
+  <rect x="450" y="348.1" width="80" height="71.9" class="ok"/>
+  <text x="490" y="338.1" text-anchor="middle" class="ok-label">295.9ms</text>
+  <text x="490" y="435" text-anchor="middle" class="label">poll p95</text>
+
+  <!-- group brackets -->
+  <line x1="110" y1="458" x2="290" y2="458" class="bracket"/>
+  <text x="200" y="475" text-anchor="middle" class="fail-label">CPU 500m (패치 전)</text>
+
+  <line x1="350" y1="458" x2="530" y2="458" class="bracket"/>
+  <text x="440" y="475" text-anchor="middle" class="ok-label">CPU 1000m (패치 후)</text>
+
+  <text x="360" y="505" text-anchor="middle" class="note">40명 동시 접속에서 CPU를 2배로 올리자 SLO FLAG &#8594; PASS로 전환</text>
+  <text x="360" y="524" text-anchor="middle" class="note">단, 스로틀링 시작 지점만 20명 &#8594; 40명으로 밀렸을 뿐, 스로틀링 자체는 사라지지 않음</text>
+</svg>

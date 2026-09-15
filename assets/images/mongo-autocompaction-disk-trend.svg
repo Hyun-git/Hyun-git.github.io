@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .label { fill: #222; }
+    .note { fill: #666; font-size: 12px; }
+    .fail-label { fill: #922; font-weight: bold; font-size: 13px; }
+    .axis { stroke: #999; stroke-width: 1.5; }
+    .count-line { stroke: #2e7d32; stroke-width: 2.5; fill: none; }
+    .storage-line { stroke: #c0392b; stroke-width: 2.5; fill: none; }
+    .event-line { stroke: #999; stroke-width: 1.5; stroke-dasharray: 4 4; }
+  </style>
+
+  <text x="380" y="24" text-anchor="middle" class="label" font-weight="bold">TTL 삭제 전후 디스크 사용량 추이 (개념도 — 실제 그래프 아님)</text>
+
+  <!-- axes -->
+  <line x1="60" y1="60" x2="60" y2="340" class="axis"/>
+  <line x1="60" y1="340" x2="700" y2="340" class="axis"/>
+  <text x="30" y="65" class="note">양</text>
+  <text x="30" y="345" class="note">0</text>
+  <text x="680" y="360" class="note">시간 →</text>
+
+  <!-- event line -->
+  <line x1="400" y1="60" x2="400" y2="340" class="event-line"/>
+  <text x="400" y="52" text-anchor="middle" class="note">TTL 삭제 실행</text>
+
+  <!-- storage line: flat, never drops -->
+  <path d="M60,100 L700,100" class="storage-line"/>
+  <!-- count line: flat then drops sharply at event -->
+  <path d="M60,108 L400,108 L440,310 L700,310" class="count-line"/>
+
+  <!-- legend -->
+  <line x1="480" y1="90" x2="510" y2="90" class="storage-line"/>
+  <text x="518" y="94" class="note">storageSize (디스크 사용량)</text>
+  <line x1="480" y1="112" x2="510" y2="112" class="count-line"/>
+  <text x="518" y="116" class="note">문서 수 (count)</text>
+
+  <text x="440" y="290" class="fail-label">문서 수는 급감하는데</text>
+  <text x="440" y="308" class="fail-label">storageSize는 그대로 유지됨</text>
+
+  <text x="380" y="395" text-anchor="middle" class="note">※ 축은 상대적 양을 나타내는 개념도이며 실측 수치가 아님</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="690" viewBox="0 0 760 690" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .note { fill: #666; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="40" y="10" width="680" height="60" rx="6" class="box"/>
+  <text x="380" y="35" text-anchor="middle" class="label">stopContainerByDockerId()</text>
+  <text x="380" y="55" text-anchor="middle" class="note">관리자가 컨테이너 정지 요청</text>
+
+  <line x1="380" y1="70" x2="380" y2="105" class="arrow"/>
+
+  <rect x="40" y="105" width="680" height="60" rx="6" class="box"/>
+  <text x="380" y="130" text-anchor="middle" class="label">needSideEffect = true</text>
+  <text x="380" y="150" text-anchor="middle" class="note">크레딧 정산이 필요한 케이스로 판단</text>
+
+  <line x1="380" y1="165" x2="380" y2="200" class="arrow"/>
+
+  <rect x="40" y="200" width="680" height="60" rx="6" class="box"/>
+  <text x="380" y="225" text-anchor="middle" class="label">service.updateCreditAndResource() 호출</text>
+  <text x="380" y="245" text-anchor="middle" class="note">부가 로직: 사용량만큼 크레딧 정산</text>
+
+  <line x1="380" y1="260" x2="380" y2="295" class="arrow"/>
+
+  <rect x="40" y="295" width="680" height="95" rx="6" class="box"/>
+  <text x="380" y="318" text-anchor="middle" class="label">크레딧 관리 서비스:</text>
+  <text x="380" y="336" text-anchor="middle" class="label">마지막 실행 로그 reason == 'admin'</text>
+  <text x="380" y="356" text-anchor="middle" class="note">"정산 대상 아님" → 비정상 응답 반환</text>
+  <text x="380" y="372" text-anchor="middle" class="note">(정지 자체와는 무관한 판단)</text>
+
+  <line x1="380" y1="390" x2="380" y2="425" class="arrow"/>
+
+  <rect x="40" y="425" width="680" height="60" rx="6" class="box"/>
+  <text x="380" y="450" text-anchor="middle" class="label">axios catch 블록 진입 → isStopped = false</text>
+  <text x="380" y="470" text-anchor="middle" class="note">정산 실패가 곧 "정지 실패"로 취급됨</text>
+
+  <line x1="380" y1="485" x2="380" y2="520" class="arrow"/>
+
+  <rect x="40" y="520" width="680" height="150" rx="6" class="fail"/>
+  <text x="380" y="546" text-anchor="middle" class="fail-label">STOPPED 전환 조건 불충족</text>
+  <text x="380" y="566" text-anchor="middle" class="fail-label">(!needSideEffect || isStopped)</text>
+  <text x="380" y="588" text-anchor="middle" class="fail-label">→ 상태 전이 자체가 실행되지 않음</text>
+  <text x="380" y="612" text-anchor="middle" class="note">실제 프로세스는 이미 내려갔는데</text>
+  <text x="380" y="630" text-anchor="middle" class="note">DB 상태만 stopping에 고정 (실패 지점)</text>
+</svg>

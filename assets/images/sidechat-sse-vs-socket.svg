@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="810" height="560" viewBox="0 0 810 560" font-family="Menlo, Consolas, monospace" font-size="13">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .note { fill: #666; font-size: 11px; }
+    .code { fill: #333; font-size: 11px; }
+    .col-title { font-size: 15px; font-weight: bold; fill: #222; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <text x="205" y="28" text-anchor="middle" class="col-title">SSE (EventSource)</text>
+  <text x="605" y="28" text-anchor="middle" class="col-title">커스텀 소켓 이벤트 (ws_event)</text>
+
+  <!-- LEFT column: SSE -->
+  <rect x="30" y="45" width="350" height="65" rx="6" class="box"/>
+  <text x="205" y="68" text-anchor="middle" class="label">이벤트마다 id: 필드 포함해서 전송</text>
+  <text x="205" y="86" text-anchor="middle" class="note">HTML 표준에 정의된 필드</text>
+  <text x="205" y="102" text-anchor="middle" class="note">(id: / event: / data:)</text>
+
+  <line x1="205" y1="110" x2="205" y2="145" class="arrow"/>
+
+  <rect x="30" y="145" width="350" height="55" rx="6" class="box"/>
+  <text x="205" y="168" text-anchor="middle" class="label">EventSource가 마지막 id 자동 기억</text>
+  <text x="205" y="186" text-anchor="middle" class="note">클라이언트 코드가 따로 관리 안 해도 됨</text>
+
+  <line x1="205" y1="200" x2="205" y2="235" class="arrow"/>
+
+  <rect x="30" y="235" width="350" height="55" rx="6" class="ok"/>
+  <text x="205" y="258" text-anchor="middle" class="ok-label">재연결 시 Last-Event-ID 헤더로 자동 전송</text>
+  <text x="205" y="276" text-anchor="middle" class="note">프로토콜 차원에서 왕복됨</text>
+
+  <line x1="205" y1="290" x2="205" y2="325" class="arrow"/>
+
+  <rect x="30" y="325" width="350" height="55" rx="6" class="ok"/>
+  <text x="205" y="358" text-anchor="middle" class="ok-label">"어디까지 봤는지"를 프로토콜이 대신 챙겨줌</text>
+
+  <!-- RIGHT column: custom socket event -->
+  <rect x="430" y="45" width="350" height="80" rx="6" class="fail"/>
+  <text x="605" y="68" text-anchor="middle" class="fail-label">emit payload에 id 필드가 없음</text>
+  <text x="605" y="88" text-anchor="middle" class="code">{ event, data, roomId, messageId }</text>
+  <text x="605" y="106" text-anchor="middle" class="note">id 같은 개념이 프로토콜에 없음</text>
+
+  <line x1="605" y1="125" x2="605" y2="160" class="arrow"/>
+
+  <rect x="430" y="160" width="350" height="55" rx="6" class="fail"/>
+  <text x="605" y="183" text-anchor="middle" class="fail-label">클라이언트도 { event, data }만 구조분해</text>
+  <text x="605" y="201" text-anchor="middle" class="note">id를 보내줘도 애초에 안 보는 상태</text>
+
+  <line x1="605" y1="215" x2="605" y2="250" class="arrow"/>
+
+  <rect x="430" y="250" width="350" height="55" rx="6" class="fail"/>
+  <text x="605" y="273" text-anchor="middle" class="fail-label">클라이언트가 들고 있을 lastEventId 없음</text>
+  <text x="605" y="291" text-anchor="middle" class="note">재구독 payload에 실어 보낼 값이 없음</text>
+
+  <line x1="605" y1="305" x2="605" y2="340" class="arrow"/>
+
+  <rect x="430" y="340" width="350" height="55" rx="6" class="fail"/>
+  <text x="605" y="373" text-anchor="middle" class="fail-label">"어디까지 봤는지" 알 방법이 없음</text>
+
+  <text x="405" y="460" text-anchor="middle" class="note">겉보기엔 둘 다 "서버가 이벤트를 계속 밀어준다"는 점에서 비슷하지만,</text>
+  <text x="405" y="480" text-anchor="middle" class="note">"어디까지 받았는지"를 프로토콜이 대신 챙겨주느냐 아니냐가 갈랐다</text>
+</svg>

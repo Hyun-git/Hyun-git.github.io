@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .axis { stroke: #333; stroke-width: 1.5; }
+    .grid { stroke: #ccc; stroke-width: 1; stroke-dasharray: 4 3; }
+    .curve { fill: none; stroke: #c0392b; stroke-width: 2.5; }
+    .marker { stroke-dasharray: 5 4; stroke-width: 1.5; }
+    .note { fill: #666; font-size: 12px; }
+    .title { font-size: 16px; font-weight: bold; fill: #222; }
+  </style>
+
+  <text x="380" y="28" text-anchor="middle" class="title">동시 사용자 수 증가에 따른 타임아웃 비율</text>
+  <text x="380" y="48" text-anchor="middle" class="note">초당 1명씩 세션 추가 (세션 미만료) &#8212; 155명에서 처음 꺾이는 지점</text>
+
+  <!-- axes -->
+  <line x1="80" y1="80" x2="80" y2="440" class="axis"/>
+  <line x1="80" y1="440" x2="700" y2="440" class="axis"/>
+  <text x="70" y="444" text-anchor="end" class="note">0%</text>
+  <text x="70" y="84" text-anchor="end" class="note">100%</text>
+  <text x="30" y="260" text-anchor="middle" class="note" transform="rotate(-90 30 260)">타임아웃 비율</text>
+  <text x="700" y="460" text-anchor="end" class="note">동시 활성 사용자 수 &#8594;</text>
+
+  <!-- CPU saturation note (~90-95명) -->
+  <line x1="309.4" y1="80" x2="309.4" y2="440" stroke="#999" stroke-width="1.5" stroke-dasharray="2 3"/>
+  <text x="309.4" y="70" text-anchor="middle" class="note">~90&#8211;95명: CPU 100% 포화 시작 (에러 없음)</text>
+
+  <!-- degradation curve: flat 0% until 145, then rises through measured points -->
+  <path d="M80,440 L439.6,440 L464.4,256.0 L489.2,159.2 L538.8,82.2 L662.8,80 L700,80" class="curve"/>
+
+  <!-- markers -->
+  <line x1="439.6" y1="440" x2="439.6" y2="80" class="marker" stroke="#2e7d32"/>
+  <circle cx="439.6" cy="440" r="4" fill="#2e7d32"/>
+  <text x="439.6" y="500" text-anchor="middle" class="ok-label">145명</text>
+  <text x="439.6" y="516" text-anchor="middle" class="note">완전히 깨끗 (에러 0)</text>
+
+  <line x1="464.4" y1="440" x2="464.4" y2="80" class="marker" stroke="#c0392b"/>
+  <circle cx="464.4" cy="256.0" r="5" fill="#c0392b"/>
+  <text x="464.4" y="230" text-anchor="middle" class="fail-label">155명</text>
+  <text x="464.4" y="246" text-anchor="middle" class="note">65 성공 / 68 타임아웃</text>
+
+  <circle cx="489.2" cy="159.2" r="5" fill="#c0392b"/>
+  <text x="489.2" y="135" text-anchor="middle" class="fail-label">165명</text>
+  <text x="489.2" y="151" text-anchor="middle" class="note">31 성공 / 110 타임아웃</text>
+
+  <circle cx="538.8" cy="82.2" r="5" fill="#922"/>
+  <text x="595" y="100" text-anchor="middle" class="fail-label">185명: 1 성공 / 158 타임아웃</text>
+
+  <line x1="662.8" y1="440" x2="662.8" y2="80" class="marker" stroke="#922"/>
+  <text x="662.8" y="500" text-anchor="middle" class="fail-label">235명~</text>
+  <text x="662.8" y="516" text-anchor="middle" class="note">성공 0건, 고착</text>
+
+  <text x="380" y="540" text-anchor="middle" class="note">이 구간 전체에서 5xx·네트워크 에러 0건 &#8212; 전부 클라이언트 타임아웃(10초), 파드 재시작 0회</text>
+</svg>

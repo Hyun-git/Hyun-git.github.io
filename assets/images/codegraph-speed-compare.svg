@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="490" viewBox="0 0 760 490" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; }
+    .task-label { fill: #222; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .note { fill: #666; font-size: 12px; }
+    .col-title { font-size: 15px; font-weight: bold; fill: #222; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <text x="380" y="22" text-anchor="middle" class="col-title">탐색 작업별 체감 소요 비교 (정성적, 본문 표 기준)</text>
+
+  <text x="295" y="50" text-anchor="middle" class="col-title">codegraph 없이</text>
+  <text x="597" y="50" text-anchor="middle" class="col-title">codegraph 사용</text>
+
+  <!-- row 1: 함수 위치 찾기 -->
+  <text x="15" y="106" class="task-label">함수 위치</text>
+  <text x="15" y="124" class="task-label">찾기</text>
+  <rect x="170" y="70" width="250" height="64" rx="6" class="box"/>
+  <text x="295" y="94" text-anchor="middle" class="label">grep 여러 번</text>
+  <text x="295" y="114" text-anchor="middle" class="note">수초~수십초</text>
+  <line x1="420" y1="102" x2="450" y2="102" class="arrow"/>
+  <rect x="450" y="70" width="295" height="64" rx="6" class="ok"/>
+  <text x="597" y="94" text-anchor="middle" class="ok-label">codegraph_search 1회</text>
+  <text x="597" y="114" text-anchor="middle" class="note">즉시</text>
+
+  <!-- row 2: 함수 의존성 파악 -->
+  <text x="15" y="182" class="task-label">함수 의존성</text>
+  <text x="15" y="200" class="task-label">파악</text>
+  <rect x="170" y="146" width="250" height="64" rx="6" class="box"/>
+  <text x="295" y="170" text-anchor="middle" class="label">파일 열기 → import 추적 반복</text>
+  <text x="295" y="190" text-anchor="middle" class="note">수분</text>
+  <line x1="420" y1="178" x2="450" y2="178" class="arrow"/>
+  <rect x="450" y="146" width="295" height="64" rx="6" class="ok"/>
+  <text x="597" y="170" text-anchor="middle" class="ok-label">codegraph_explore 1회</text>
+  <text x="597" y="190" text-anchor="middle" class="note">call path까지 확인</text>
+
+  <!-- row 3: 호출자 확인 -->
+  <text x="15" y="258" class="task-label">호출자</text>
+  <text x="15" y="276" class="task-label">확인</text>
+  <rect x="170" y="222" width="250" height="64" rx="6" class="box"/>
+  <text x="295" y="246" text-anchor="middle" class="label">grep + 수동 확인</text>
+  <text x="295" y="266" text-anchor="middle" class="note">결과 하나하나 검토</text>
+  <line x1="420" y1="254" x2="450" y2="254" class="arrow"/>
+  <rect x="450" y="222" width="295" height="64" rx="6" class="ok"/>
+  <text x="597" y="246" text-anchor="middle" class="ok-label">codegraph_callers</text>
+  <text x="597" y="266" text-anchor="middle" class="note">즉시</text>
+
+  <!-- row 4: 파일 구조 파악 -->
+  <text x="15" y="334" class="task-label">파일 구조</text>
+  <text x="15" y="352" class="task-label">파악</text>
+  <rect x="170" y="298" width="250" height="64" rx="6" class="box"/>
+  <text x="295" y="322" text-anchor="middle" class="label">find/ls 반복</text>
+  <line x1="420" y1="330" x2="450" y2="330" class="arrow"/>
+  <rect x="450" y="298" width="295" height="64" rx="6" class="ok"/>
+  <text x="597" y="322" text-anchor="middle" class="ok-label">codegraph_files 1회</text>
+  <text x="597" y="342" text-anchor="middle" class="note">언어·심볼 수 포함</text>
+
+  <!-- row 5: 변경 영향 범위 -->
+  <text x="15" y="410" class="task-label">변경 영향</text>
+  <text x="15" y="428" class="task-label">범위</text>
+  <rect x="170" y="374" width="250" height="64" rx="6" class="box"/>
+  <text x="295" y="404" text-anchor="middle" class="label">수동 추적</text>
+  <line x1="420" y1="406" x2="450" y2="406" class="arrow"/>
+  <rect x="450" y="374" width="295" height="64" rx="6" class="ok"/>
+  <text x="597" y="398" text-anchor="middle" class="ok-label">codegraph_impact</text>
+  <text x="597" y="418" text-anchor="middle" class="note">blast radius 자동 계산</text>
+
+  <text x="380" y="470" text-anchor="middle" class="note">수치는 본문에 언급된 정성적 표현(수초~수십초, 수분 등) 그대로이며, 정확한 초 단위 측정치는 아니다</text>
+</svg>

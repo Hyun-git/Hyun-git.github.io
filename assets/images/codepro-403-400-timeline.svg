@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="900" viewBox="0 0 760 900" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .warn { fill: #fff3cd; stroke: #b8860b; stroke-width: 1.5; }
+    .label { fill: #222; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .warn-label { fill: #6b5200; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .dashed { stroke: #999; stroke-width: 1.5; stroke-dasharray: 4 4; marker-end: url(#arrowhead); }
+    .note { fill: #666; font-size: 12px; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="30" y="15" width="700" height="60" rx="6" class="fail"/>
+  <text x="380" y="40" text-anchor="middle" class="fail-label">403: devel-claude-sonnet-4-6 접근 거부</text>
+  <text x="380" y="60" text-anchor="middle" class="note">LiteLLM fallback 체인에는 있지만 키 허용 목록엔 없는 모델</text>
+
+  <line x1="380" y1="75" x2="380" y2="110" class="arrow"/>
+
+  <rect x="30" y="110" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="135" text-anchor="middle" class="label">ModelFallbackMiddleware가 LiteLLM 우회</text>
+  <text x="380" y="152" text-anchor="middle" class="note">native ChatAnthropic으로 직접 fallback</text>
+
+  <line x1="380" y1="165" x2="380" y2="200" class="arrow"/>
+
+  <rect x="30" y="200" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="225" text-anchor="middle" class="label">native Claude가 tool call을 스트리밍으로 응답</text>
+  <text x="380" y="242" text-anchor="middle" class="note">Anthropic 전용 input_json_delta 컨텐츠 블록 생성</text>
+
+  <line x1="380" y1="255" x2="380" y2="290" class="arrow"/>
+
+  <rect x="30" y="290" width="700" height="65" rx="6" class="warn"/>
+  <text x="380" y="315" text-anchor="middle" class="warn-label">스트리밍 종료 후 rebase 실패 (name 누락)</text>
+  <text x="380" y="335" text-anchor="middle" class="note">tool_use 블록으로 정리되지 못하고 delta 조각인 채로 남음</text>
+
+  <line x1="380" y1="355" x2="380" y2="390" class="arrow"/>
+
+  <rect x="30" y="390" width="700" height="60" rx="6" class="warn"/>
+  <text x="380" y="415" text-anchor="middle" class="warn-label">정리 안 된 delta가 LangGraph checkpoint(MongoDB)에 저장</text>
+  <text x="380" y="435" text-anchor="middle" class="note">에러 없이 조용히 통과 (403은 이미 해결된 상태)</text>
+
+  <line x1="380" y1="450" x2="380" y2="500" class="dashed"/>
+  <text x="400" y="480" class="note">시간 경과 — 같은 room, 다음 요청까지 대기</text>
+
+  <rect x="30" y="500" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="525" text-anchor="middle" class="label">같은 roomId에서 GPT-5.2로 모델 전환</text>
+  <text x="380" y="542" text-anchor="middle" class="note">chatHistory: [] 로 보내도 checkpoint는 그대로 로드됨</text>
+
+  <line x1="380" y1="555" x2="380" y2="590" class="arrow"/>
+
+  <rect x="30" y="590" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="615" text-anchor="middle" class="label">checkpoint 로드 시 오염된 input_json_delta가 딸려옴</text>
+  <text x="380" y="632" text-anchor="middle" class="note">OpenAI 쪽으로 그대로 전달됨</text>
+
+  <line x1="380" y1="645" x2="380" y2="680" class="arrow"/>
+
+  <rect x="30" y="680" width="700" height="70" rx="6" class="fail"/>
+  <text x="380" y="708" text-anchor="middle" class="fail-label">400: Invalid value 'input_json_delta'</text>
+  <text x="380" y="730" text-anchor="middle" class="note">OpenAI가 지원하지 않는 content type → 겉으로는 403과 무관해 보이는 별개 에러</text>
+
+  <line x1="380" y1="750" x2="380" y2="785" class="arrow"/>
+
+  <rect x="30" y="785" width="700" height="75" rx="6" class="box"/>
+  <text x="380" y="810" text-anchor="middle" class="label">조치: stripStreamingArtifactBlocks</text>
+  <text x="380" y="830" text-anchor="middle" class="note">summary 미들웨어에서 스트리밍 전용 잔여 블록을 항상 제거</text>
+  <text x="380" y="847" text-anchor="middle" class="note">(tool_calls 필드는 별도 보존되어 있어 content에서 지워도 안전)</text>
+</svg>

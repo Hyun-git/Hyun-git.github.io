@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460" font-family="'Pretendard', 'Apple SD Gothic Neo', sans-serif">
+  <rect width="900" height="460" fill="#ffffff"/>
+
+  <text x="450" y="34" font-size="16" font-weight="700" fill="#1f2937" text-anchor="middle">
+    재연결 구간(2초)마다 실제 수신한 이벤트 수
+  </text>
+  <text x="450" y="54" font-size="12" fill="#64748b" text-anchor="middle">
+    실제 dev 서버에서 강제 재연결 4회 재현, 매 구간 수신량 측정
+  </text>
+
+  <!-- chart area: 40..860 x, 90..360 y, baseline at 360 -->
+  <!-- y axis gridlines every 20 up to 140 -->
+  <g stroke="#e5e7eb" stroke-width="1">
+    <line x1="60" y1="360" x2="860" y2="360"/>
+    <line x1="60" y1="290" x2="860" y2="290"/>
+    <line x1="60" y1="220" x2="860" y2="220"/>
+    <line x1="60" y1="150" x2="860" y2="150"/>
+    <line x1="60" y1="80"  x2="860" y2="80"/>
+  </g>
+  <g font-size="11" fill="#94a3b8" text-anchor="end">
+    <text x="52" y="364">0</text>
+    <text x="52" y="294">30</text>
+    <text x="52" y="224">60</text>
+    <text x="52" y="154">90</text>
+    <text x="52" y="84">120</text>
+  </g>
+
+  <!-- scale: 1px per ~1.0 event roughly (max 123 -> use 2.3px/event within 280px height) -->
+  <!-- baseline y=360, top y=80 => 280px for 123 max => scale = 280/130 ≈ 2.15 -->
+
+  <!-- groups: 4 intervals -->
+  <!-- interval 1: before 15, after 14 -->
+  <!-- interval 2: before 49, after 36 -->
+  <!-- interval 3: before 87, after 34 -->
+  <!-- interval 4: before 123, after 33 -->
+
+  <!-- helper: bar bottom=360, scale=2.15 -->
+
+  <!-- interval 1 -->
+  <g>
+    <rect x="110" y="327.75" width="34" height="32.25" fill="#ef4444"/>
+    <text x="127" y="320" font-size="11" fill="#991b1b" text-anchor="middle" font-weight="700">15</text>
+    <rect x="150" y="329.9" width="34" height="30.1" fill="#22c55e"/>
+    <text x="167" y="322" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">14</text>
+    <text x="147" y="382" font-size="11.5" fill="#334155" text-anchor="middle">0~2초</text>
+  </g>
+
+  <!-- interval 2 -->
+  <g>
+    <rect x="290" y="254.65" width="34" height="105.35" fill="#ef4444"/>
+    <text x="307" y="247" font-size="11" fill="#991b1b" text-anchor="middle" font-weight="700">49</text>
+    <rect x="330" y="282.6" width="34" height="77.4" fill="#22c55e"/>
+    <text x="347" y="275" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">36</text>
+    <text x="327" y="382" font-size="11.5" fill="#334155" text-anchor="middle">2~4초</text>
+  </g>
+
+  <!-- interval 3 -->
+  <g>
+    <rect x="470" y="172.95" width="34" height="187.05" fill="#ef4444"/>
+    <text x="487" y="165" font-size="11" fill="#991b1b" text-anchor="middle" font-weight="700">87</text>
+    <rect x="510" y="286.9" width="34" height="73.1" fill="#22c55e"/>
+    <text x="527" y="279" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">34</text>
+    <text x="507" y="382" font-size="11.5" fill="#334155" text-anchor="middle">4~6초</text>
+  </g>
+
+  <!-- interval 4 -->
+  <g>
+    <rect x="650" y="95.55" width="34" height="264.45" fill="#ef4444"/>
+    <text x="667" y="88" font-size="11" fill="#991b1b" text-anchor="middle" font-weight="700">123</text>
+    <rect x="690" y="289.05" width="34" height="70.95" fill="#22c55e"/>
+    <text x="707" y="281" font-size="11" fill="#166534" text-anchor="middle" font-weight="700">33</text>
+    <text x="687" y="382" font-size="11.5" fill="#334155" text-anchor="middle">6~8초</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(300, 410)">
+    <rect x="0" y="0" width="14" height="14" fill="#ef4444"/>
+    <text x="20" y="12" font-size="12.5" fill="#334155">이전 (lastEventId 없이 재연결 — 매번 전체 재전송)</text>
+  </g>
+  <g transform="translate(300, 432)">
+    <rect x="0" y="0" width="14" height="14" fill="#22c55e"/>
+    <text x="20" y="12" font-size="12.5" fill="#334155">수정 후 (lastEventId 전달 — 이후 이벤트만 수신)</text>
+  </g>
+</svg>

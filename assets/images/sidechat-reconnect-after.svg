@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="620" viewBox="0 0 760 620" font-family="Menlo, Consolas, monospace" font-size="15">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .note { fill: #666; font-size: 13px; }
+    .code { fill: #333; font-size: 13px; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="40" y="10" width="680" height="65" rx="6" class="ok"/>
+  <text x="380" y="33" text-anchor="middle" class="ok-label">서버: 이벤트 emit 시 payload에 id 필드 추가</text>
+  <text x="380" y="53" text-anchor="middle" class="code">emit('ws_event', { event, data, roomId, messageId, id: event.id })</text>
+
+  <line x1="380" y1="75" x2="380" y2="110" class="arrow"/>
+
+  <rect x="40" y="110" width="680" height="60" rx="6" class="box"/>
+  <text x="380" y="135" text-anchor="middle" class="label">클라이언트: 이벤트 수신마다 lastEventIdByMessageIdRef Map 갱신</text>
+  <text x="380" y="155" text-anchor="middle" class="note">messageId별로 마지막으로 받은 id를 기억</text>
+
+  <line x1="380" y1="170" x2="380" y2="205" class="arrow"/>
+
+  <rect x="40" y="205" width="680" height="55" rx="6" class="box"/>
+  <text x="380" y="230" text-anchor="middle" class="label">연결 끊김 → 재연결 시도</text>
+  <text x="380" y="248" text-anchor="middle" class="note">이번엔 Map에 마지막 id가 남아있음</text>
+
+  <line x1="380" y1="260" x2="380" y2="295" class="arrow"/>
+
+  <rect x="40" y="295" width="680" height="70" rx="6" class="ok"/>
+  <text x="380" y="320" text-anchor="middle" class="ok-label">클라이언트: 저장된 lastEventId를 재구독 payload에 실어 전송</text>
+  <text x="380" y="343" text-anchor="middle" class="code">emit('agent:subscribe', { roomId, messageId, lastEventId })</text>
+
+  <line x1="380" y1="365" x2="380" y2="400" class="arrow"/>
+
+  <rect x="40" y="400" width="680" height="60" rx="6" class="box"/>
+  <text x="380" y="425" text-anchor="middle" class="label">서버: lastEventId 있음 → 그 이후 이벤트만 조회</text>
+  <text x="380" y="445" text-anchor="middle" class="note">없으면 기존대로 '0-0' 처리 (이 분기는 그대로 유지)</text>
+
+  <line x1="380" y1="460" x2="380" y2="495" class="arrow"/>
+
+  <rect x="40" y="495" width="680" height="70" rx="6" class="ok"/>
+  <text x="380" y="522" text-anchor="middle" class="ok-label">해당 지점 이후 이벤트만 재전송</text>
+  <text x="380" y="545" text-anchor="middle" class="note">같은 id 중복 수신은 클라이언트가 무시</text>
+</svg>
