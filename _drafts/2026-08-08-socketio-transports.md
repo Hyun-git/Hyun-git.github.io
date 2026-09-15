@@ -1,5 +1,5 @@
 ---
-title: socket.io transports 옵션과 sticky session
+title: "[Draft] socket.io transports 옵션과 sticky session"
 layout: post
 ---
 

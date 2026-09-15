@@ -1,5 +1,5 @@
 ---
-title: MCP로 컨테이너 제어 도구 설계하기
+title: "[Draft] MCP로 컨테이너 제어 도구 설계하기"
 layout: post
 ---
 

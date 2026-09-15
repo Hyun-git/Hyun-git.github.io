@@ -1,5 +1,5 @@
 ---
-title: 여러 서비스가 같은 MongoDB 컬렉션을 쓸 때 생기는 문제들
+title: "[Draft] 여러 서비스가 같은 MongoDB 컬렉션을 쓸 때 생기는 문제들"
 layout: post
 ---
 

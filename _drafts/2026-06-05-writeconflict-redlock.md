@@ -1,5 +1,5 @@
 ---
-title: WriteConflict 재시도와 결제 동시성 락
+title: "[Draft] WriteConflict 재시도와 결제 동시성 락"
 layout: post
 ---
 
