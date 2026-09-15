@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="480" viewBox="0 0 760 480" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .commit { fill: #fff3cd; stroke: #b8860b; stroke-width: 1.5; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .commit-label { fill: #7a5c00; font-weight: bold; }
+    .note { fill: #666; font-size: 12px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="30" y="15" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="38" text-anchor="middle" class="label">이벤트 크레딧 구매 요청 시작</text>
+  <text x="380" y="56" text-anchor="middle" class="note">최초 1회 한정 보너스 — 재시도가 아니라 하나는 막아야 함</text>
+
+  <line x1="380" y1="70" x2="380" y2="105" class="arrow"/>
+
+  <rect x="30" y="105" width="700" height="60" rx="6" class="commit"/>
+  <text x="380" y="128" text-anchor="middle" class="commit-label">Redis Redlock 획득 (user_id 기준)</text>
+  <text x="380" y="148" text-anchor="middle" class="note">lock의 random value를 ide_event_logs.lockValue에 저장</text>
+
+  <line x1="380" y1="165" x2="380" y2="200" class="arrow"/>
+
+  <rect x="30" y="200" width="700" height="60" rx="6" class="box"/>
+  <text x="380" y="223" text-anchor="middle" class="label">FE ↔ PG사(결제 모듈) 직접 통신으로 결제 승인 대기</text>
+  <text x="380" y="243" text-anchor="middle" class="note">백엔드는 이 구간 동안 lock 객체를 메모리에 들고 있을 수 없음</text>
+
+  <line x1="380" y1="260" x2="380" y2="295" class="arrow"/>
+
+  <rect x="30" y="295" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="318" text-anchor="middle" class="label">결제 완료 콜백 도착</text>
+  <text x="380" y="336" text-anchor="middle" class="note">ide_event_logs에서 저장해둔 lockValue를 다시 조회</text>
+
+  <line x1="380" y1="350" x2="380" y2="385" class="arrow"/>
+
+  <rect x="30" y="385" width="700" height="60" rx="6" class="ok"/>
+  <text x="380" y="410" text-anchor="middle" class="ok-label">저장된 lockValue로 unlock + 크레딧 지급</text>
+  <text x="380" y="430" text-anchor="middle" class="note">동시 요청 중 나머지 하나는 lock 획득 실패로 즉시 차단</text>
+</svg>

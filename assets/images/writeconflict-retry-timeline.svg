@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .note { fill: #666; font-size: 12px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <text x="380" y="25" text-anchor="middle" class="label" font-weight="bold">같은 유저 크레딧 document에 동시 요청 2건</text>
+
+  <rect x="60" y="45" width="280" height="45" rx="6" class="box"/>
+  <text x="200" y="72" text-anchor="middle" class="label">요청 A: PUT credit/llm/use</text>
+
+  <rect x="420" y="45" width="280" height="45" rx="6" class="box"/>
+  <text x="560" y="72" text-anchor="middle" class="label">요청 B: PUT credit/llm/use</text>
+
+  <line x1="200" y1="90" x2="380" y2="130" class="arrow"/>
+  <line x1="560" y1="90" x2="380" y2="130" class="arrow"/>
+
+  <rect x="230" y="130" width="300" height="55" rx="6" class="fail"/>
+  <text x="380" y="153" text-anchor="middle" class="fail-label">MongoDB WriteConflict</text>
+  <text x="380" y="171" text-anchor="middle" class="note">같은 document를 두 트랜잭션이 동시에 건드림</text>
+
+  <line x1="380" y1="185" x2="380" y2="220" class="arrow"/>
+
+  <rect x="60" y="220" width="640" height="55" rx="6" class="box"/>
+  <text x="380" y="243" text-anchor="middle" class="label">재시도 대기 = base(500ms) × 2^n + random jitter</text>
+  <text x="380" y="261" text-anchor="middle" class="note">jitter 없이 순수 backoff만 쓰면 A·B가 같은 타이밍에 또 충돌</text>
+
+  <line x1="380" y1="275" x2="380" y2="310" class="arrow"/>
+
+  <rect x="60" y="310" width="280" height="50" rx="6" class="ok"/>
+  <text x="200" y="340" text-anchor="middle" class="ok-label">A 재시도 → 620ms 후 성공</text>
+
+  <rect x="420" y="310" width="280" height="50" rx="6" class="ok"/>
+  <text x="560" y="340" text-anchor="middle" class="ok-label">B 재시도 → 890ms 후 성공</text>
+
+  <text x="380" y="395" text-anchor="middle" class="note">최대 5회(WRITE_CONFLICT_MAX_RETRIES)까지 재시도, jitter로 재시도 시점을 흩어놓아 재충돌 확률을 낮춤</text>
+</svg>

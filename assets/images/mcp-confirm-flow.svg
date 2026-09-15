@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="400" viewBox="0 0 760 400" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .commit { fill: #fff3cd; stroke: #b8860b; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .commit-label { fill: #7a5c00; font-weight: bold; }
+    .note { fill: #666; font-size: 12px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="30" y="15" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="38" text-anchor="middle" class="label">사용자: "스토리지 10GB로 늘려줘"</text>
+  <text x="380" y="56" text-anchor="middle" class="note">되돌리기 어려운 변경 요청</text>
+
+  <line x1="380" y1="70" x2="380" y2="105" class="arrow"/>
+
+  <rect x="30" y="105" width="700" height="65" rx="6" class="commit"/>
+  <text x="380" y="130" text-anchor="middle" class="commit-label">Tool 호출 ① confirm: false</text>
+  <text x="380" y="150" text-anchor="middle" class="note">변경 내용(prevStatus → afterStatus)과 riskLevel만 반환</text>
+  <text x="380" y="165" text-anchor="middle" class="note">아직 아무것도 실행되지 않음</text>
+
+  <line x1="380" y1="170" x2="380" y2="205" class="arrow"/>
+
+  <rect x="30" y="205" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="228" text-anchor="middle" class="label">사용자에게 "이렇게 바꾸겠습니다" 제안 표시 → 승인 대기</text>
+  <text x="380" y="246" text-anchor="middle" class="note">LLM이 직접 실행 권한을 갖지 않음</text>
+
+  <line x1="380" y1="260" x2="380" y2="295" class="arrow"/>
+
+  <rect x="30" y="295" width="700" height="55" rx="6" class="commit"/>
+  <text x="380" y="318" text-anchor="middle" class="commit-label">사용자 승인</text>
+  <text x="380" y="336" text-anchor="middle" class="note">Tool 호출 ② confirm: true (같은 요청을 다시 전송)</text>
+
+  <line x1="380" y1="350" x2="380" y2="360" class="arrow"/>
+
+  <rect x="30" y="360" width="700" height="30" rx="6" class="ok"/>
+  <text x="380" y="381" text-anchor="middle" class="ok-label">실제 변경 적용</text>
+</svg>

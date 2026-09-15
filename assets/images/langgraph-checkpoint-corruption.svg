@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="460" viewBox="0 0 760 460" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .note { fill: #666; font-size: 12px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <text x="380" y="24" text-anchor="middle" class="label" font-weight="bold">같은 tick 안의 두 task (exitBehavior: 'error')</text>
+
+  <rect x="40" y="45" width="300" height="50" rx="6" class="box"/>
+  <text x="190" y="75" text-anchor="middle" class="label">task 1: 정상 응답 생성</text>
+
+  <rect x="420" y="45" width="300" height="50" rx="6" class="fail"/>
+  <text x="570" y="75" text-anchor="middle" class="fail-label">task 2: ToolCallLimit 초과 → throw</text>
+
+  <line x1="190" y1="95" x2="190" y2="140" class="arrow"/>
+  <line x1="570" y1="95" x2="570" y2="140" class="arrow"/>
+
+  <rect x="40" y="140" width="300" height="50" rx="6" class="ok"/>
+  <text x="190" y="170" text-anchor="middle" class="ok-label">PregelRunner._commit → 정상 커밋</text>
+
+  <rect x="420" y="140" width="300" height="50" rx="6" class="fail"/>
+  <text x="570" y="170" text-anchor="middle" class="fail-label">write가 버려짐 (커밋 안 됨)</text>
+
+  <line x1="190" y1="190" x2="380" y2="230" class="arrow"/>
+  <line x1="570" y1="190" x2="380" y2="230" class="arrow"/>
+
+  <rect x="130" y="230" width="500" height="60" rx="6" class="fail"/>
+  <text x="380" y="253" text-anchor="middle" class="fail-label">checkpoint의 TASKS(Topic) 채널이 반쪽만 기록됨</text>
+  <text x="380" y="271" text-anchor="middle" class="note">Topic.isAvailable → TypeError: Cannot read properties of undefined</text>
+
+  <line x1="380" y1="290" x2="380" y2="325" class="arrow"/>
+
+  <rect x="80" y="325" width="600" height="60" rx="6" class="fail"/>
+  <text x="380" y="350" text-anchor="middle" class="fail-label">이 스레드는 이후 모든 요청에서 같은 에러로 영구 실패</text>
+  <text x="380" y="368" text-anchor="middle" class="note">체크포인트가 이미 손상돼 복구 불가</text>
+
+  <text x="380" y="420" text-anchor="middle" class="note">end / error 둘 다 내부적으로 throw 경로를 가짐 — 원인은 같음</text>
+</svg>

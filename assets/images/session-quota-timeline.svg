@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="360" viewBox="0 0 760 360" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .commit { fill: #fff3cd; stroke: #b8860b; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .commit-label { fill: #7a5c00; font-weight: bold; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .note { fill: #666; font-size: 12px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="30" y="15" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="38" text-anchor="middle" class="label">LLM 호출 완료 → 크레딧 차감 시점마다 사용량 판정</text>
+  <text x="380" y="56" text-anchor="middle" class="note">유저가 가진 모든 project 사용량 합산 (초고빈도 지점에서는 안 함)</text>
+
+  <line x1="380" y1="70" x2="380" y2="105" class="arrow"/>
+
+  <rect x="30" y="105" width="700" height="55" rx="6" class="fail"/>
+  <text x="380" y="128" text-anchor="middle" class="fail-label">하드쿼터 최초 도달</text>
+  <text x="380" y="146" text-anchor="middle" class="note">Redis ZADD NX로 graceEndTime = 현재시각 + 5분 등록</text>
+
+  <line x1="380" y1="160" x2="380" y2="195" class="arrow"/>
+
+  <rect x="30" y="195" width="700" height="55" rx="6" class="commit"/>
+  <text x="380" y="218" text-anchor="middle" class="commit-label">5분 그레이스 구간</text>
+  <text x="380" y="236" text-anchor="middle" class="note">AI(LLM) 질문만 차단 (ZSCORE로 가볍게 체크) · 채점/수동 저장은 계속 허용</text>
+
+  <line x1="380" y1="250" x2="380" y2="285" class="arrow"/>
+
+  <rect x="30" y="285" width="700" height="60" rx="6" class="ok"/>
+  <text x="380" y="310" text-anchor="middle" class="ok-label">스윕 워커 (20초 간격)가 만료된 유저를 찾아 컨테이너 종료</text>
+  <text x="380" y="328" text-anchor="middle" class="note">NX 덕분에 재판정이 여러 번 걸려도 5분 타이머는 늘어나지 않음</text>
+</svg>

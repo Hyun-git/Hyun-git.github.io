@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="220" viewBox="0 0 760 220" font-family="Menlo, Consolas, monospace" font-size="13">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .commit { fill: #fff3cd; stroke: #b8860b; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .label { fill: #222; }
+    .commit-label { fill: #7a5c00; font-weight: bold; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .note { fill: #666; font-size: 11px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="10" y="70" width="165" height="70" rx="6" class="box"/>
+  <text x="92" y="98" text-anchor="middle" class="label">초기 버전</text>
+  <text x="92" y="116" text-anchor="middle" class="note">컬렉션명 단복수 수정</text>
+
+  <rect x="195" y="70" width="165" height="70" rx="6" class="commit"/>
+  <text x="277" y="98" text-anchor="middle" class="commit-label">다음 버전</text>
+  <text x="277" y="116" text-anchor="middle" class="note">인덱스 하나씩 보강</text>
+
+  <rect x="380" y="70" width="165" height="70" rx="6" class="commit"/>
+  <text x="462" y="98" text-anchor="middle" class="commit-label">그다음 버전</text>
+  <text x="462" y="116" text-anchor="middle" class="note">스키마 전체 재감사</text>
+  <text x="462" y="130" text-anchor="middle" class="note">누락 필드/enum/default 복구</text>
+
+  <rect x="565" y="70" width="185" height="70" rx="6" class="ok"/>
+  <text x="657" y="98" text-anchor="middle" class="ok-label">최종</text>
+  <text x="657" y="116" text-anchor="middle" class="note">공통 모델 shared로 이동</text>
+
+  <line x1="175" y1="105" x2="190" y2="105" class="arrow"/>
+  <line x1="360" y1="105" x2="375" y2="105" class="arrow"/>
+  <line x1="545" y1="105" x2="560" y2="105" class="arrow"/>
+
+  <text x="380" y="25" text-anchor="middle" class="label" font-weight="bold">migrate-mongo + develop→main PR 머지 시 GitHub Actions 자동배포</text>
+  <text x="380" y="180" text-anchor="middle" class="note">한 번에 다 고치지 않고 순차 배포 — 문제 생겨도 어느 버전에서 바뀌었는지 추적 쉬움</text>
+</svg>

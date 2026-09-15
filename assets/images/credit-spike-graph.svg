@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" font-family="Menlo, Consolas, monospace" font-size="13">
+  <style>
+    .axis { stroke: #999; stroke-width: 1; }
+    .line { fill: none; stroke: #c0392b; stroke-width: 2.5; }
+    .fill { fill: #fde2e2; opacity: 0.6; }
+    .label { fill: #222; }
+    .note { fill: #666; font-size: 11px; }
+    .peak { fill: #922; font-weight: bold; }
+  </style>
+
+  <text x="380" y="25" text-anchor="middle" class="label" font-weight="bold">credit_logs 정산(use) 요청량 — 2시간 구간, 501개 계정</text>
+
+  <line x1="60" y1="230" x2="700" y2="230" class="axis"/>
+  <line x1="60" y1="40" x2="60" y2="230" class="axis"/>
+  <text x="30" y="235" class="note">0</text>
+  <text x="10" y="60" class="note">9,555/분</text>
+
+  <polygon class="fill" points="60,230 150,210 250,195 350,175 450,90 550,150 650,200 700,215 700,230 60,230"/>
+  <polyline class="line" points="60,230 150,210 250,195 350,175 450,90 550,150 650,200 700,215"/>
+
+  <circle cx="450" cy="90" r="5" fill="#c0392b"/>
+  <text x="450" y="75" text-anchor="middle" class="peak">21:50 피크</text>
+
+  <text x="60" y="250" class="note">시작</text>
+  <text x="700" y="250" text-anchor="end" class="note">2시간 후</text>
+
+  <text x="380" y="280" text-anchor="middle" class="note">2시간 누적 148,100건 · 피크 시 초당 약 159건 — 턴당 LLM 호출마다 3왕복(check/charge/getTotal)이 배치 없이 그대로 나감</text>
+</svg>

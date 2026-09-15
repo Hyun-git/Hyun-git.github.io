@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="260" viewBox="0 0 760 260" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .label { fill: #222; }
+    .note { fill: #666; font-size: 12px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+    .arrow-back { stroke: #888; stroke-width: 1.5; stroke-dasharray: 4 3; marker-end: url(#arrowhead2); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+    <marker id="arrowhead2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#888" />
+    </marker>
+  </defs>
+
+  <rect x="20" y="60" width="150" height="60" rx="6" class="box"/>
+  <text x="95" y="95" text-anchor="middle" class="label">채팅 UI</text>
+
+  <rect x="210" y="60" width="150" height="60" rx="6" class="box"/>
+  <text x="285" y="95" text-anchor="middle" class="label">mcp client</text>
+
+  <rect x="400" y="60" width="150" height="60" rx="6" class="box"/>
+  <text x="475" y="95" text-anchor="middle" class="label">mcp server</text>
+
+  <rect x="590" y="60" width="150" height="60" rx="6" class="box"/>
+  <text x="665" y="90" text-anchor="middle" class="label">백엔드 API</text>
+  <text x="665" y="106" text-anchor="middle" class="note">(컨테이너 제어)</text>
+
+  <line x1="170" y1="80" x2="205" y2="80" class="arrow"/>
+  <line x1="360" y1="80" x2="395" y2="80" class="arrow"/>
+  <line x1="550" y1="80" x2="585" y2="80" class="arrow"/>
+
+  <line x1="585" y1="105" x2="550" y2="105" class="arrow-back"/>
+  <line x1="395" y1="105" x2="360" y2="105" class="arrow-back"/>
+  <line x1="205" y1="105" x2="170" y2="105" class="arrow-back"/>
+
+  <text x="380" y="30" text-anchor="middle" class="note">"bear.lee의 컨테이너 보여줘" 같은 자연어 질문</text>
+  <text x="95" y="150" text-anchor="middle" class="note">— 실선: 요청 →</text>
+  <text x="95" y="170" text-anchor="middle" class="note">— 점선: 응답 (⋯&gt;)</text>
+  <text x="475" y="150" text-anchor="middle" class="note">각 Tool은 projectName·action 등</text>
+  <text x="475" y="168" text-anchor="middle" class="note">required/optional args로 정의</text>
+</svg>

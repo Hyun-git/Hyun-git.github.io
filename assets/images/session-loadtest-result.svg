@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="320" viewBox="0 0 760 320" font-family="Menlo, Consolas, monospace" font-size="13">
+  <style>
+    .axis { stroke: #999; stroke-width: 1; }
+    .ok-bar { fill: #a5d6a7; stroke: #2e7d32; }
+    .fail-bar { fill: #ef9a9a; stroke: #c0392b; }
+    .label { fill: #222; }
+    .note { fill: #666; font-size: 11px; }
+  </style>
+
+  <text x="380" y="25" text-anchor="middle" class="label" font-weight="bold">150명 / 컨테이너 300개 스트레스 테스트 (질문 573건 기준)</text>
+
+  <line x1="60" y1="230" x2="700" y2="230" class="axis"/>
+  <line x1="60" y1="60" x2="60" y2="230" class="axis"/>
+
+  <rect x="120" y="60" width="140" height="170" class="ok-bar"/>
+  <text x="190" y="55" text-anchor="middle" class="label">514건 (89.7%)</text>
+  <text x="190" y="250" text-anchor="middle" class="label">첫 시도 완결</text>
+
+  <rect x="340" y="212" width="140" height="18" class="fail-bar"/>
+  <text x="410" y="205" text-anchor="middle" class="label">59건 (10.3%)</text>
+  <text x="410" y="250" text-anchor="middle" class="label">첫 시도 실패</text>
+  <text x="410" y="266" text-anchor="middle" class="note">특정 모델의 5분 구간에 집중</text>
+
+  <text x="600" y="130" class="label">TTFT p95</text>
+  <text x="600" y="150" class="label" font-weight="bold">6.23s</text>
+  <text x="600" y="180" class="label">LLM p95</text>
+  <text x="600" y="200" class="label" font-weight="bold">22s</text>
+
+  <text x="380" y="295" text-anchor="middle" class="note">인프라 자체 에러율 0.585% · 실패가 무작위가 아니라 특정 구간에 몰려 원인 특정 가능</text>
+</svg>

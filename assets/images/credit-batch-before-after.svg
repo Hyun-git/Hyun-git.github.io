@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340" font-family="Menlo, Consolas, monospace" font-size="13">
+  <style>
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 1.5; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 1.5; }
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .label { fill: #222; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .note { fill: #666; font-size: 11px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <text x="190" y="25" text-anchor="middle" class="label" font-weight="bold">Before</text>
+  <rect x="40" y="40" width="300" height="45" rx="6" class="box"/>
+  <text x="190" y="67" text-anchor="middle" class="label">agent:token:usage 이벤트 발생</text>
+  <line x1="190" y1="85" x2="190" y2="110" class="arrow"/>
+  <rect x="40" y="110" width="300" height="120" rx="6" class="fail"/>
+  <text x="190" y="132" text-anchor="middle" class="fail-label">매번 credit 서비스로 3왕복</text>
+  <text x="190" y="152" text-anchor="middle" class="note">① checkCreditExists (GET)</text>
+  <text x="190" y="170" text-anchor="middle" class="note">② chargeLlmUsage (PUT)</text>
+  <text x="190" y="188" text-anchor="middle" class="note">③ getTotalLlmUsageByUserId (GET)</text>
+  <text x="190" y="210" text-anchor="middle" class="fail-label">LLM 호출 횟수만큼 그대로 배가</text>
+
+  <text x="570" y="25" text-anchor="middle" class="label" font-weight="bold">After</text>
+  <rect x="420" y="40" width="300" height="45" rx="6" class="box"/>
+  <text x="570" y="67" text-anchor="middle" class="label">agent:token:usage 이벤트 발생</text>
+  <line x1="570" y1="85" x2="570" y2="110" class="arrow"/>
+  <rect x="420" y="110" width="300" height="60" rx="6" class="ok"/>
+  <text x="570" y="135" text-anchor="middle" class="ok-label">Redis에 로컬 누적만</text>
+  <text x="570" y="153" text-anchor="middle" class="note">hardQuota 판정도 로컬 값으로 즉시</text>
+  <line x1="570" y1="170" x2="570" y2="195" class="arrow"/>
+  <rect x="420" y="195" width="300" height="105" rx="6" class="ok"/>
+  <text x="570" y="217" text-anchor="middle" class="ok-label">조건 충족 시에만 배치 flush</text>
+  <text x="570" y="236" text-anchor="middle" class="note">주기(5~10s) · 턴/세션 종료</text>
+  <text x="570" y="252" text-anchor="middle" class="note">hardQuota 임계 근접 · 누적량 초과</text>
+  <text x="570" y="268" text-anchor="middle" class="note">프로세스 종료(SIGTERM)</text>
+  <text x="570" y="286" text-anchor="middle" class="note">agentSettlementDedup으로 중복 flush 방지</text>
+</svg>

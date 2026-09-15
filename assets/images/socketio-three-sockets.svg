@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="300" viewBox="0 0 760 300" font-family="Menlo, Consolas, monospace" font-size="13">
+  <style>
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .ok { fill: #e4f5e4; stroke: #2e7d32; stroke-width: 2; }
+    .label { fill: #222; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .ok-label { fill: #1b5e20; font-weight: bold; }
+    .note { fill: #666; font-size: 11px; }
+  </style>
+
+  <text x="380" y="25" text-anchor="middle" class="label" font-weight="bold">io() 호출 지점 4곳</text>
+
+  <rect x="20" y="45" width="220" height="70" rx="6" class="fail"/>
+  <text x="130" y="70" text-anchor="middle" class="fail-label">/agent 네임스페이스</text>
+  <text x="130" y="88" text-anchor="middle" class="note">AI 사이드챗</text>
+  <text x="130" y="104" text-anchor="middle" class="note">transports 미지정</text>
+
+  <rect x="270" y="45" width="220" height="70" rx="6" class="fail"/>
+  <text x="380" y="70" text-anchor="middle" class="fail-label">OT 협업 소켓</text>
+  <text x="380" y="88" text-anchor="middle" class="note">크로스 오리진 연결</text>
+  <text x="380" y="104" text-anchor="middle" class="note">transports 미지정</text>
+
+  <rect x="520" y="45" width="220" height="70" rx="6" class="fail"/>
+  <text x="630" y="70" text-anchor="middle" class="fail-label">공용 소켓 래퍼</text>
+  <text x="630" y="88" text-anchor="middle" class="note">여러 도메인에서 재사용</text>
+  <text x="630" y="104" text-anchor="middle" class="note">파급 범위 최대</text>
+
+  <rect x="270" y="150" width="220" height="70" rx="6" class="ok"/>
+  <text x="380" y="175" text-anchor="middle" class="ok-label">서버-서버 내부 통신 소켓</text>
+  <text x="380" y="193" text-anchor="middle" class="note">transports: ['websocket','polling']</text>
+  <text x="380" y="209" text-anchor="middle" class="note">명시돼 있어 문제 없음</text>
+
+  <text x="380" y="260" text-anchor="middle" class="label">→ 3곳 모두 transports: ['websocket']로 고정</text>
+  <text x="380" y="280" text-anchor="middle" class="note">polling fallback이 사라지는 트레이드오프는 감수</text>
+</svg>

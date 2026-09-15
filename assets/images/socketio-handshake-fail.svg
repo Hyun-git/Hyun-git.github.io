@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="340" viewBox="0 0 760 340" font-family="Menlo, Consolas, monospace" font-size="14">
+  <style>
+    .box { fill: #f6f6f6; stroke: #333; stroke-width: 1.5; }
+    .fail { fill: #fde2e2; stroke: #c0392b; stroke-width: 2; }
+    .label { fill: #222; }
+    .fail-label { fill: #922; font-weight: bold; }
+    .note { fill: #666; font-size: 12px; }
+    .arrow { stroke: #555; stroke-width: 1.5; marker-end: url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555" />
+    </marker>
+  </defs>
+
+  <rect x="30" y="20" width="300" height="55" rx="6" class="box"/>
+  <text x="180" y="43" text-anchor="middle" class="label">클라이언트</text>
+  <text x="180" y="61" text-anchor="middle" class="note">transports 옵션 미지정</text>
+
+  <line x1="330" y1="47" x2="440" y2="47" class="arrow"/>
+  <text x="385" y="38" text-anchor="middle" class="note">① polling</text>
+
+  <rect x="440" y="20" width="290" height="55" rx="6" class="box"/>
+  <text x="585" y="50" text-anchor="middle" class="label">인스턴스 A (ALB sticky)</text>
+
+  <line x1="180" y1="75" x2="180" y2="130" class="arrow"/>
+  <text x="230" y="105" class="note">② websocket 업그레이드 시도</text>
+
+  <rect x="30" y="130" width="700" height="55" rx="6" class="box"/>
+  <text x="380" y="153" text-anchor="middle" class="label">쿠키 만료 / 파드 스케일인 / 쿠키 미전송 중 하나 발생</text>
+  <text x="380" y="171" text-anchor="middle" class="note">sticky session이 더 이상 같은 인스턴스를 보장하지 못함</text>
+
+  <line x1="380" y1="185" x2="380" y2="220" class="arrow"/>
+
+  <rect x="440" y="220" width="290" height="55" rx="6" class="fail"/>
+  <text x="585" y="250" text-anchor="middle" class="fail-label">인스턴스 B로 라우팅</text>
+
+  <line x1="380" y1="220" x2="380" y2="255" class="arrow"/>
+  <rect x="30" y="220" width="300" height="55" rx="6" class="box"/>
+  <text x="180" y="250" text-anchor="middle" class="label">클라이언트 (동일 세션 기대)</text>
+
+  <line x1="330" y1="247" x2="435" y2="247" class="arrow"/>
+
+  <rect x="130" y="290" width="500" height="40" rx="6" class="fail"/>
+  <text x="380" y="315" text-anchor="middle" class="fail-label">"Session ID unknown" — 핸드셰이크 실패</text>
+</svg>
